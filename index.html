@@ -56,7 +56,7 @@
         .hero-section {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: white;
-            padding: 100px 0;
+            padding: 150px 0 100px 0;
             position: relative;
             overflow: hidden;
         }
@@ -68,9 +68,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,144C960,149,1056,139,1152,128C1248,117,1344,107,1392,101.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="rgba(255,255,255,0.1)"/></svg>') no-repeat;
             background-size: cover;
-            opacity: 0.3;
+            opacity: 0.1;
         }
 
         .hero-content {
@@ -82,40 +82,28 @@
             font-size: 3.5rem;
             font-weight: bold;
             margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero-section .subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease 0.2s backwards;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
         }
 
         .hero-section .lead {
             font-size: 1.1rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            animation: fadeInUp 1s ease 0.4s backwards;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
         }
 
         .btn-hero {
             padding: 12px 30px;
             font-size: 1.1rem;
-            margin: 0 10px;
-            border-radius: 50px;
+            margin: 10px;
+            border-radius: 30px;
             transition: all 0.3s ease;
-            animation: fadeInUp 1s ease 0.6s backwards;
         }
 
         .btn-hero:hover {
@@ -187,37 +175,59 @@
 
         .timeline-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
             left: -15px;
-            top: 30px;
+            top: 50%;
+            transform: translateY(-50%);
             width: 10px;
             height: 10px;
             background: var(--secondary-color);
             border-radius: 50%;
-            box-shadow: 0 0 0 4px white, 0 0 0 8px var(--secondary-color);
+            box-shadow: 0 0 0 3px var(--light-bg), 0 0 0 6px var(--secondary-color);
         }
 
         .company-name {
-            color: var(--secondary-color);
-            font-weight: bold;
             font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
         }
 
         .job-title {
-            color: var(--primary-color);
             font-size: 1.1rem;
-            margin: 5px 0;
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 10px;
         }
 
         .date-location {
             color: #7f8c8d;
-            font-size: 0.9rem;
             margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .timeline-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-item ul li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .timeline-item ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
         }
 
         /* Projects Section */
@@ -230,15 +240,15 @@
             background: white;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
-            height: 100%;
             margin-bottom: 30px;
+            height: 100%;
         }
 
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
         }
 
         .project-image {
@@ -299,14 +309,53 @@
         }
 
         .cert-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
 
         .cert-icon {
             font-size: 3rem;
             color: var(--secondary-color);
             margin-bottom: 20px;
+        }
+
+        .cert-card h5 {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .cert-card p {
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            line-height: 1.8;
+        }
+
+        .cert-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .cert-reference {
+            font-size: 0.75rem;
+            color: #95a5a6;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .cert-description {
+            background: var(--light-bg);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            text-align: left;
         }
 
         /* Contact Section */
@@ -317,11 +366,10 @@
         }
 
         .contact-item {
-            background: rgba(255,255,255,0.1);
-            padding: 30px;
-            border-radius: 10px;
-            margin-bottom: 20px;
             text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
         }
@@ -332,17 +380,23 @@
         }
 
         .contact-item i {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+            font-size: 3rem;
+            margin-bottom: 20px;
         }
 
         .contact-item h5 {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-weight: bold;
         }
 
         .contact-item a {
             color: white;
             text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
         }
 
         /* Footer */
@@ -397,9 +451,11 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
+                transform: translateY(20px);
             }
             to {
                 opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
@@ -475,7 +531,7 @@
 
                     <div class="skill-item">
                         <h5><i class="fas fa-bullhorn me-2"></i>Marketing Digital</h5>
-                        <p class="mb-0">Réseaux sociaux, E-commerce (Shopify), Taux de conversion, Engagement</p>
+                        <p class="mb-0">Réseaux sociaux, E-commerce (Shopify), Taux de conversion, Engagement, Google Tag Manager</p>
                     </div>
 
                     <div class="skill-item">
@@ -497,18 +553,19 @@
         <div class="container">
             <h2 class="section-title text-center">Expérience Professionnelle</h2>
             <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    
+                <div class="col-12">
                     <div class="timeline-item">
-                        <div class="company-name">Selectra | Madrid, Espagne</div>
-                        <div class="job-title">Alternance - Commercial Sédentaire Vente IT</div>
+                        <div class="company-name">Selectra | Paris, France</div>
+                        <div class="job-title">Alternance - Digital Marketing & Data Analytics</div>
                         <div class="date-location">
-                            <i class="fas fa-calendar me-2"></i>Août 2025 - Mars 2025
+                            <i class="fas fa-calendar me-2"></i>Depuis Septembre 2024
                         </div>
                         <ul>
-                            <li>Utilisation d'outils CRM et reporting des performances commerciales</li>
-                            <li>Analyse des besoins clients et argumentaire commercial personnalisé</li>
-                            <li>Développement de stratégies de vente B2B</li>
+                            <li>Optimisation du taux de conversion sur les canaux digitaux (site web, publicités en ligne)</li>
+                            <li>Analyse des données via Google Analytics 4 et Power BI pour améliorer les performances commerciales</li>
+                            <li>Création de dashboards Power BI pour suivre les KPI marketing et commerciaux</li>
+                            <li>Gestion de campagnes sur les réseaux sociaux et amélioration de l'engagement client</li>
+                            <li>Collaboration avec les équipes commerciales pour identifier les opportunités de croissance</li>
                         </ul>
                     </div>
 
@@ -529,19 +586,17 @@
 
                     <div class="timeline-item">
                         <div class="company-name">Ville de Châtillon | Châtillon, France</div>
-                        <div class="job-title">Stage - Analyse Financière</div>
+                        <div class="job-title">Agent Commercial - Service des Sports</div>
                         <div class="date-location">
-                            <i class="fas fa-calendar me-2"></i>Mai 2023 - Juillet 2023
+                            <i class="fas fa-calendar me-2"></i>Juillet - Août 2023
                         </div>
                         <ul>
-                            <li>Gestion administrative & bureautique</li>
-                            <li>Mise en place d'une table de transposition</li>
-                            <li>Budget et instructions comptables des collectivités</li>
-                            <li>Analyse budgétaire des marchés publics</li>
-                            <li>Analyse budgétaire des futurs investissements</li>
+                            <li>Accueil et orientation des visiteurs</li>
+                            <li>Vente de prestations et gestion des encaissements</li>
+                            <li>Gestion des inscriptions et suivi des dossiers clients</li>
+                            <li>Développement des compétences en relation client B2C</li>
                         </ul>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -559,12 +614,12 @@
                             <i class="fas fa-chart-bar"></i>
                         </div>
                         <div class="project-content">
-                            <h4>Dashboard Power BI - Analyse E-commerce</h4>
-                            <p>Création d'un tableau de bord interactif pour analyser les performances d'un site e-commerce Shopify. Suivi des KPIs: taux de conversion, taux de rebond, panier moyen.</p>
+                            <h4>Dashboard Power BI - KPI Marketing</h4>
+                            <p>Création d'un tableau de bord interactif pour suivre les performances des campagnes marketing digitales et analyser le comportement des utilisateurs.</p>
                             <div class="project-tags">
                                 <span class="project-tag">Power BI</span>
-                                <span class="project-tag">E-commerce</span>
                                 <span class="project-tag">Data Viz</span>
+                                <span class="project-tag">Marketing</span>
                             </div>
                         </div>
                     </div>
@@ -573,14 +628,14 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="project-card">
                         <div class="project-image">
-                            <i class="fas fa-share-alt"></i>
+                            <i class="fas fa-shopping-cart"></i>
                         </div>
                         <div class="project-content">
-                            <h4>Analyse de Réseaux Sociaux</h4>
-                            <p>Analyse approfondie des performances sur les réseaux sociaux: taux d'engagement, watch time, taux de rétention. Optimisation de la stratégie de contenu basée sur les données.</p>
+                            <h4>Optimisation E-commerce Shopify</h4>
+                            <p>Amélioration du taux de conversion d'une boutique en ligne via l'analyse des données GA4 et l'optimisation de l'expérience utilisateur.</p>
                             <div class="project-tags">
-                                <span class="project-tag">Social Media</span>
-                                <span class="project-tag">Analytics</span>
+                                <span class="project-tag">E-commerce</span>
+                                <span class="project-tag">Shopify</span>
                                 <span class="project-tag">GA4</span>
                             </div>
                         </div>
@@ -593,8 +648,8 @@
                             <i class="fas fa-code"></i>
                         </div>
                         <div class="project-content">
-                            <h4>Site Web Responsive</h4>
-                            <p>Développement d'un site web moderne et responsive en utilisant HTML5, CSS3 et Bootstrap. Design adaptatif pour tous les appareils.</p>
+                            <h4>Site Web Responsive - Portfolio</h4>
+                            <p>Développement d'un site web responsive avec HTML/CSS et Bootstrap pour présenter mes compétences et réalisations professionnelles.</p>
                             <div class="project-tags">
                                 <span class="project-tag">HTML/CSS</span>
                                 <span class="project-tag">Bootstrap</span>
@@ -607,14 +662,31 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="project-card">
                         <div class="project-image">
-                            <i class="fas fa-briefcase"></i>
+                            <i class="fas fa-chart-line"></i>
                         </div>
                         <div class="project-content">
-                            <h4>Étude de Marché - Secteur IT</h4>
-                            <p>Réalisation d'une étude de marché complète incluant analyse de l'environnement (micro et macro), analyse sectorielle (mapping), et veille concurrentielle.</p>
+                            <h4>Analyse de Données - Tendances Client</h4>
+                            <p>Étude approfondie des données clients pour identifier les tendances de comportement et optimiser les stratégies commerciales.</p>
                             <div class="project-tags">
-                                <span class="project-tag">Étude de marché</span>
-                                <span class="project-tag">Analyse</span>
+                                <span class="project-tag">Excel</span>
+                                <span class="project-tag">Data Analysis</span>
+                                <span class="project-tag">Insights</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <div class="project-content">
+                            <h4>Campagne Social Media</h4>
+                            <p>Gestion et optimisation de campagnes sur les réseaux sociaux pour augmenter l'engagement et la notoriété de la marque.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Social Media</span>
+                                <span class="project-tag">Engagement</span>
                                 <span class="project-tag">Stratégie</span>
                             </div>
                         </div>
@@ -638,23 +710,6 @@
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <div class="project-content">
-                            <h4>Gestion de Base de Données CRM</h4>
-                            <p>Mise en place et optimisation d'un système CRM pour améliorer le suivi client et les performances commerciales. Intégration avec Power BI pour le reporting.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">CRM</span>
-                                <span class="project-tag">Database</span>
-                                <span class="project-tag">B2B</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
@@ -663,32 +718,107 @@
     <section id="certifications" class="certifications-section">
         <div class="container">
             <h2 class="section-title text-center">Certifications & Formations</h2>
-            <div class="row">
-                
-                <div class="col-lg-3 col-md-6">
+            
+            <!-- Certifications Enablers 2025 -->
+            <div class="row mb-5">
+                <div class="col-12 text-center mb-4">
+                    <h3 style="color: var(--primary-color);">
+                        <i class="fas fa-award me-2"></i>Certifications Enablers 2025
+                    </h3>
+                    <p style="font-size: 1.1rem; color: #7f8c8d;">Formations certifiantes validées en 2025</p>
+                </div>
+
+                <!-- Google Tag Manager -->
+                <div class="col-lg-4 col-md-6">
                     <div class="cert-card">
                         <div class="cert-icon">
-                            <i class="fas fa-certificate"></i>
+                            <i class="fab fa-google"></i>
                         </div>
-                        <h5>Microsoft Enablers</h5>
-                        <p>Certifications validées sur l'année en reporting, dashboards et KPI</p>
+                        <h5>Google Tag Manager</h5>
+                        <span class="cert-badge">Septembre 2025</span>
+                        <div class="cert-description">
+                            <strong>Compétences acquises :</strong>
+                            <ul style="list-style: none; padding-left: 0; margin-top: 10px;">
+                                <li>✓ Gestion et déploiement de tags</li>
+                                <li>✓ Création de déclencheurs avancés</li>
+                                <li>✓ Configuration de variables</li>
+                                <li>✓ Tracking événementiel</li>
+                            </ul>
+                        </div>
+                        <p class="cert-reference">Réf: 3723445633116162</p>
+                        <a href="https://www.enablers.school/redirect/api/certification/3723445633116162" 
+                           target="_blank" 
+                           style="color: var(--secondary-color); text-decoration: none; font-size: 0.9rem;">
+                            <i class="fas fa-external-link-alt me-1"></i>Vérifier le certificat
+                        </a>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
+                <!-- Excel -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="cert-card">
+                        <div class="cert-icon">
+                            <i class="fas fa-file-excel"></i>
+                        </div>
+                        <h5>Excel - Parcours & Certification</h5>
+                        <span class="cert-badge">Octobre 2025</span>
+                        <div class="cert-description">
+                            <strong>Compétences acquises :</strong>
+                            <ul style="list-style: none; padding-left: 0; margin-top: 10px;">
+                                <li>✓ Manipulation de données avancées</li>
+                                <li>✓ Tableaux croisés dynamiques</li>
+                                <li>✓ Création de graphiques</li>
+                                <li>✓ Formules et fonctions Excel</li>
+                            </ul>
+                        </div>
+                        <p class="cert-reference">Réf: 2551403384021990</p>
+                        <a href="https://www.enablers.school/redirect/api/certification/2551403384021990" 
+                           target="_blank" 
+                           style="color: var(--secondary-color); text-decoration: none; font-size: 0.9rem;">
+                            <i class="fas fa-external-link-alt me-1"></i>Vérifier le certificat
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Power BI & Power Platform -->
+                <div class="col-lg-4 col-md-6">
                     <div class="cert-card">
                         <div class="cert-icon">
                             <i class="fas fa-chart-pie"></i>
                         </div>
-                        <h5>Power BI</h5>
-                        <p>Certification en analyse et visualisation de données</p>
+                        <h5>Microsoft Power Platform & Power BI</h5>
+                        <span class="cert-badge">Octobre 2025</span>
+                        <div class="cert-description">
+                            <strong>Compétences acquises :</strong>
+                            <ul style="list-style: none; padding-left: 0; margin-top: 10px;">
+                                <li>✓ Automatisation des processus</li>
+                                <li>✓ Analyse de données avancée</li>
+                                <li>✓ Visualisation interactive</li>
+                                <li>✓ Création de dashboards</li>
+                            </ul>
+                        </div>
+                        <p class="cert-reference">Réf: 2440501303316055</p>
+                        <a href="https://www.enablers.school/redirect/api/certification/2440501303316055" 
+                           target="_blank" 
+                           style="color: var(--secondary-color); text-decoration: none; font-size: 0.9rem;">
+                            <i class="fas fa-external-link-alt me-1"></i>Vérifier le certificat
+                        </a>
                     </div>
+                </div>
+            </div>
+
+            <!-- Autres Formations -->
+            <div class="row mt-5">
+                <div class="col-12 text-center mb-4">
+                    <h3 style="color: var(--primary-color);">
+                        <i class="fas fa-graduation-cap me-2"></i>Parcours Académique
+                    </h3>
                 </div>
 
                 <div class="col-lg-3 col-md-6">
                     <div class="cert-card">
                         <div class="cert-icon">
-                            <i class="fas fa-graduation-cap"></i>
+                            <i class="fas fa-university"></i>
                         </div>
                         <h5>Master II Management SI & Data</h5>
                         <p>EMLV et IM - Courbevoie<br>2022 - 2027</p>
@@ -698,35 +828,30 @@
                 <div class="col-lg-3 col-md-6">
                     <div class="cert-card">
                         <div class="cert-icon">
+                            <i class="fas fa-globe-europe"></i>
+                        </div>
+                        <h5>Échange Européen</h5>
+                        <p>BBU Budapest - Faculté de Finance et Comptabilité<br>Septembre 2024 - Janvier 2025</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="cert-card">
+                        <div class="cert-icon">
                             <i class="fas fa-code"></i>
                         </div>
                         <h5>Formation Développeur Web</h5>
-                        <p>Formation indépendante - Paris<br>Juillet - Mars 2025</p>
+                        <p>Formation indépendante - Paris<br>Juillet 2024 - Mars 2025</p>
                     </div>
                 </div>
 
-            </div>
-
-            <div class="row mt-5">
-                <div class="col-12 text-center">
-                    <h3 class="mb-4">Parcours Académique</h3>
-                </div>
-                <div class="col-lg-6">
-                    <div class="cert-card">
-                        <div class="cert-icon">
-                            <i class="fas fa-university"></i>
-                        </div>
-                        <h5>Échange Européen - BBU Budapest</h5>
-                        <p>Faculté de Finance et de Comptabilité<br>Septembre 2024 - Janvier 2025</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
+                <div class="col-lg-3 col-md-6">
                     <div class="cert-card">
                         <div class="cert-icon">
                             <i class="fas fa-laptop-code"></i>
                         </div>
                         <h5>Compétences Techniques</h5>
-                        <p>Python (base), CSS (base)<br>Suite Office (Excel, Word, PowerPoint avancé)<br>Canva, ChatGPT, Sider, DeepSeek</p>
+                        <p>Python, HTML/CSS<br>Suite Office avancée<br>Outils IA (ChatGPT, Canva)</p>
                     </div>
                 </div>
             </div>
