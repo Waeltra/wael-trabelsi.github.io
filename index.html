@@ -54,65 +54,52 @@
         .hero-section {
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: white;
-            padding: 150px 0 100px 0;
-            position: relative;
-            overflow: hidden;
+            padding: 150px 0 100px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
         }
 
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="rgba(255,255,255,0.1)"/></svg>') repeat-x;
-            opacity: 0.3;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-section h1 {
+        .hero-content h1 {
             font-size: 3.5rem;
             font-weight: bold;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
         }
 
-        .hero-section .subtitle {
+        .hero-content .subtitle {
             font-size: 1.5rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
-        }
-
-        .hero-section .lead {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 15px;
             opacity: 0.9;
         }
 
+        .hero-content .lead {
+            font-size: 1.2rem;
+            opacity: 0.85;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
         .btn-hero {
-            padding: 12px 30px;
+            padding: 12px 35px;
             font-size: 1.1rem;
-            border-radius: 30px;
-            margin: 0 10px;
+            margin: 10px;
+            border-radius: 50px;
             transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .btn-hero:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
 
         .section-title {
             font-size: 2.5rem;
             font-weight: bold;
+            color: var(--primary-color);
             margin-bottom: 50px;
             position: relative;
-            padding-bottom: 20px;
+            padding-bottom: 15px;
         }
 
         .section-title::after {
@@ -123,7 +110,7 @@
             transform: translateX(-50%);
             width: 100px;
             height: 4px;
-            background: var(--secondary-color);
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
             border-radius: 2px;
         }
 
@@ -134,7 +121,7 @@
 
         .skill-item {
             background: var(--light-bg);
-            padding: 20px;
+            padding: 25px;
             border-radius: 10px;
             margin-bottom: 20px;
             transition: all 0.3s ease;
@@ -144,42 +131,47 @@
         .skill-item:hover {
             transform: translateX(10px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left-color: var(--accent-color);
         }
 
         .skill-item h5 {
             color: var(--primary-color);
+            font-weight: bold;
             margin-bottom: 10px;
         }
 
         .experience-section {
             padding: 80px 0;
-            background: var(--light-bg);
+            background: white;
         }
 
         .timeline-item {
             background: white;
             padding: 30px;
-            border-radius: 10px;
-            margin-bottom: 30px;
+            border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
             position: relative;
+            border-left: 4px solid var(--secondary-color);
             transition: all 0.3s ease;
         }
 
         .timeline-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            border-left-color: var(--accent-color);
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -20px;
+            left: -12px;
             top: 30px;
-            width: 10px;
-            height: 10px;
-            background: var(--secondary-color);
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
+            background: var(--secondary-color);
+            border: 4px solid white;
         }
 
         .company-name {
@@ -199,21 +191,31 @@
         .date-location {
             color: #7f8c8d;
             margin-bottom: 15px;
+            font-style: italic;
         }
 
         .timeline-item ul {
-            margin-top: 15px;
-            padding-left: 20px;
+            list-style: none;
+            padding-left: 0;
         }
 
-        .timeline-item li {
-            margin-bottom: 8px;
-            line-height: 1.6;
+        .timeline-item ul li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .timeline-item ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
         }
 
         .projects-section {
             padding: 80px 0;
-            background: white;
+            background: var(--light-bg);
         }
 
         .project-card {
@@ -222,39 +224,31 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             transition: all 0.3s ease;
-            margin-bottom: 30px;
             height: 100%;
+            margin-bottom: 30px;
         }
 
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
         }
 
         .project-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .project-image i {
-            font-size: 5rem;
-            color: rgba(255,255,255,0.8);
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            padding: 50px;
+            text-align: center;
+            color: white;
+            font-size: 4rem;
         }
 
         .project-content {
-            padding: 25px;
+            padding: 30px;
         }
 
-        .project-card h4 {
+        .project-content h4 {
             color: var(--primary-color);
-            margin-bottom: 15px;
             font-weight: bold;
+            margin-bottom: 15px;
         }
 
         .project-tags {
@@ -323,9 +317,9 @@
 
         .cert-details {
             background: var(--light-bg);
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
         }
 
         .cert-details ul {
@@ -334,8 +328,16 @@
         }
 
         .cert-details li {
-            margin-bottom: 8px;
-            font-size: 0.95rem;
+            margin: 8px 0;
+            color: var(--dark-text);
+        }
+
+        .cert-reference {
+            font-size: 0.9rem;
+            color: #95a5a6;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--light-bg);
         }
 
         .cert-link {
@@ -348,15 +350,8 @@
         }
 
         .cert-link:hover {
-            color: var(--primary-color);
+            color: var(--accent-color);
             transform: translateX(5px);
-        }
-
-        .cert-reference {
-            font-size: 0.85rem;
-            color: #95a5a6;
-            margin-top: 10px;
-            font-family: monospace;
         }
 
         .contact-section {
@@ -515,8 +510,8 @@
                     <h3 class="mb-4">Compétences Clés</h3>
                     
                     <div class="skill-item">
-                        <h5><i class="fas fa-chart-line me-2"></i>Analyse de Données</h5>
-                        <p class="mb-0">Power BI, GA4, Excel avancé, Visualisation de données, KPI Marketing & Commerciaux</p>
+                        <h5><i class="fas fa-chart-line me-2"></i>Data Analytics</h5>
+                        <p class="mb-0">Power BI, Google Analytics 4, Excel Avancé, Analyse de données, Tableaux de bord</p>
                     </div>
 
                     <div class="skill-item">
@@ -547,20 +542,20 @@
         <div class="container">
             <h2 class="section-title text-center">Expérience Professionnelle</h2>
             <div class="row">
-                <div class="col-lg-10 mx-auto">
+                <div class="col-12">
                     
                     <div class="timeline-item">
-                        <div class="company-name">EMLV - École de Commerce | Paris, France</div>
-                        <div class="job-title">Alternance - Marketing Digital & Data Analytics</div>
+                        <div class="company-name">Décathlon | Budapest, Hongrie</div>
+                        <div class="job-title">Stage - Vente & Relation Client</div>
                         <div class="date-location">
-                            <i class="fas fa-calendar me-2"></i>Septembre 2025 - Août 2027
+                            <i class="fas fa-calendar me-2"></i>Septembre 2024 - Janvier 2025
                         </div>
                         <ul>
-                            <li>Développement de stratégies digitales data-driven</li>
-                            <li>Analyse des performances marketing et KPI commerciaux</li>
-                            <li>Optimisation des campagnes publicitaires (ROI, conversion)</li>
-                            <li>Création de tableaux de bord interactifs (Power BI, GA4)</li>
-                            <li>Gestion de projets e-commerce et web analytics</li>
+                            <li>Conseil et vente B2C dans un environnement international</li>
+                            <li>Amélioration de l'expérience client et fidélisation</li>
+                            <li>Analyse des tendances de vente et comportements d'achat</li>
+                            <li>Collaboration avec des équipes multiculturelles</li>
+                            <li>Gestion des retours et service après-vente</li>
                         </ul>
                     </div>
 
@@ -580,16 +575,17 @@
                     </div>
 
                     <div class="timeline-item">
-                        <div class="company-name">Wafa Assurance | Rabat, Maroc</div>
-                        <div class="job-title">Stage - Service Commercial</div>
+                        <div class="company-name">Brico Dépôt | Bobigny, France</div>
+                        <div class="job-title">Équipier Polyvalent Logistique</div>
                         <div class="date-location">
                             <i class="fas fa-calendar me-2"></i>Juillet 2023 - Août 2023
                         </div>
                         <ul>
-                            <li>Participation aux activités du service commercial</li>
-                            <li>Analyse des performances commerciales</li>
-                            <li>Relation client B2B/B2C</li>
-                            <li>Suivi des indicateurs de vente</li>
+                            <li>Réception et gestion des marchandises</li>
+                            <li>Mise en rayon et merchandising</li>
+                            <li>Conseil client et accompagnement dans les achats</li>
+                            <li>Optimisation des processus logistiques</li>
+                            <li>Travail en équipe et respect des délais</li>
                         </ul>
                     </div>
 
@@ -623,11 +619,11 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="project-card">
                         <div class="project-image">
-                            <i class="fas fa-code"></i>
+                            <i class="fas fa-globe"></i>
                         </div>
                         <div class="project-content">
-                            <h4>Site Web Responsive</h4>
-                            <p>Développement d'un site web moderne et responsive en utilisant HTML5, CSS3 et Bootstrap. Design adaptatif pour tous les appareils.</p>
+                            <h4>Site Web Personnel (Portfolio)</h4>
+                            <p>Développement d'un portfolio professionnel en HTML/CSS avec design responsive et animations, hébergé sur GitHub Pages.</p>
                             <div class="project-tags">
                                 <span class="project-tag">HTML/CSS</span>
                                 <span class="project-tag">Bootstrap</span>
@@ -657,15 +653,15 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="project-card">
                         <div class="project-image">
-                            <i class="fas fa-chart-line"></i>
+                            <i class="fas fa-chart-pie"></i>
                         </div>
                         <div class="project-content">
-                            <h4>Étude de Marché - Secteur Retail</h4>
-                            <p>Analyse concurrentielle approfondie, segmentation client, et recommandations stratégiques pour un acteur du retail parisien.</p>
+                            <h4>Tracking Google Analytics 4</h4>
+                            <p>Mise en place de suivi avancé d'événements, analyse des comportements utilisateurs et rapports personnalisés GA4.</p>
                             <div class="project-tags">
-                                <span class="project-tag">Étude marché</span>
-                                <span class="project-tag">Retail</span>
-                                <span class="project-tag">Stratégie</span>
+                                <span class="project-tag">GA4</span>
+                                <span class="project-tag">Tracking</span>
+                                <span class="project-tag">Analytics</span>
                             </div>
                         </div>
                     </div>
@@ -674,15 +670,15 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="project-card">
                         <div class="project-image">
-                            <i class="fas fa-robot"></i>
+                            <i class="fas fa-tags"></i>
                         </div>
                         <div class="project-content">
-                            <h4>Automatisation avec IA</h4>
-                            <p>Utilisation de ChatGPT et outils IA pour automatiser la création de contenu marketing, l'analyse de données et la génération de rapports.</p>
+                            <h4>Configuration Google Tag Manager</h4>
+                            <p>Déploiement et gestion de tags marketing sans code, création de déclencheurs personnalisés et suivi des conversions.</p>
                             <div class="project-tags">
-                                <span class="project-tag">IA</span>
-                                <span class="project-tag">Automation</span>
-                                <span class="project-tag">Marketing</span>
+                                <span class="project-tag">GTM</span>
+                                <span class="project-tag">Tags</span>
+                                <span class="project-tag">Conversions</span>
                             </div>
                         </div>
                     </div>
@@ -691,15 +687,15 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="project-card">
                         <div class="project-image">
-                            <i class="fas fa-mobile-alt"></i>
+                            <i class="fas fa-file-excel"></i>
                         </div>
                         <div class="project-content">
-                            <h4>Stratégie Social Media</h4>
-                            <p>Élaboration d'une stratégie de contenu multi-plateformes, calendrier éditorial, analyse des performances et optimisation de l'engagement.</p>
+                            <h4>Automatisation Excel Avancé</h4>
+                            <p>Création de tableaux de bord dynamiques, formules avancées, tableaux croisés dynamiques et macros VBA pour automatisation.</p>
                             <div class="project-tags">
-                                <span class="project-tag">Social Media</span>
-                                <span class="project-tag">Content</span>
-                                <span class="project-tag">Engagement</span>
+                                <span class="project-tag">Excel</span>
+                                <span class="project-tag">VBA</span>
+                                <span class="project-tag">Automatisation</span>
                             </div>
                         </div>
                     </div>
@@ -719,23 +715,24 @@
                     <p style="font-size: 1.1rem; color: #7f8c8d;">Formations certifiantes en outils digitaux et data analytics</p>
                 </div>
 
+                <!-- Google Analytics 4 -->
                 <div class="col-lg-6">
                     <div class="cert-card">
                         <div class="cert-icon">
-                            <i class="fas fa-chart-line"></i>
+                            <i class="fab fa-google"></i>
                         </div>
                         <span class="cert-date">29 septembre 2025</span>
-                        <h5>Google Analytics 4 - Parcours & Certification</h5>
+                        <h5>Google Analytics 4 (GA4) - Parcours & Certification</h5>
                         <p><strong>Organisme :</strong> Enablers</p>
                         
                         <div class="cert-details">
                             <p style="margin-bottom: 10px; font-weight: 600; color: var(--primary-color);">Compétences acquises :</p>
                             <ul>
                                 <li>Mesure et analyse des activités en ligne</li>
-                                <li>Création de comparaisons et segmentations avancées</li>
-                                <li>Rapports personnalisés et tableaux de bord</li>
-                                <li>Analyse du comportement utilisateur et conversion</li>
-                                <li>Configuration des événements et objectifs GA4</li>
+                                <li>Création de comparaisons et rapports personnalisés</li>
+                                <li>Configuration de tableaux de bord GA4</li>
+                                <li>Analyse du comportement utilisateur</li>
+                                <li>Suivi des conversions et événements</li>
                             </ul>
                         </div>
                         
@@ -749,6 +746,7 @@
                     </div>
                 </div>
 
+                <!-- Google Tag Manager -->
                 <div class="col-lg-6">
                     <div class="cert-card">
                         <div class="cert-icon">
@@ -779,23 +777,24 @@
                     </div>
                 </div>
 
+                <!-- Excel Avancé -->
                 <div class="col-lg-6">
                     <div class="cert-card">
                         <div class="cert-icon">
                             <i class="fas fa-file-excel"></i>
                         </div>
                         <span class="cert-date">12 octobre 2025</span>
-                        <h5>Excel - Parcours & Certification</h5>
+                        <h5>Excel Avancé - Parcours</h5>
                         <p><strong>Organisme :</strong> Enablers</p>
                         
                         <div class="cert-details">
                             <p style="margin-bottom: 10px; font-weight: 600; color: var(--primary-color);">Compétences acquises :</p>
                             <ul>
-                                <li>Maîtrise des bases d'Excel (formules, fonctions)</li>
-                                <li>Manipulation et nettoyage de données avancés</li>
-                                <li>Tableaux croisés dynamiques (TCD)</li>
-                                <li>Création de graphiques professionnels</li>
+                                <li>Formules et fonctions avancées</li>
+                                <li>Tableaux croisés dynamiques complexes</li>
                                 <li>Automatisation avec macros VBA</li>
+                                <li>Analyse de données et graphiques avancés</li>
+                                <li>Modélisation financière et budgétaire</li>
                             </ul>
                         </div>
                         
@@ -809,23 +808,24 @@
                     </div>
                 </div>
 
+                <!-- Power BI -->
                 <div class="col-lg-6">
                     <div class="cert-card">
                         <div class="cert-icon">
-                            <i class="fas fa-chart-pie"></i>
+                            <i class="fas fa-chart-bar"></i>
                         </div>
                         <span class="cert-date">13 octobre 2025</span>
-                        <h5>Microsoft Power Platform & Power BI</h5>
+                        <h5>Microsoft Power Platform & Power BI - Parcours</h5>
                         <p><strong>Organisme :</strong> Enablers</p>
                         
                         <div class="cert-details">
                             <p style="margin-bottom: 10px; font-weight: 600; color: var(--primary-color);">Compétences acquises :</p>
                             <ul>
-                                <li>Conception de dashboards interactifs</li>
-                                <li>Modélisation de données (Power Query, DAX)</li>
-                                <li>Création de KPI et métriques business</li>
-                                <li>Visualisations avancées et storytelling data</li>
-                                <li>Publication et partage de rapports</li>
+                                <li>Création de tableaux de bord interactifs</li>
+                                <li>Modélisation de données avec Power Query</li>
+                                <li>Langage DAX pour calculs avancés</li>
+                                <li>Visualisations dynamiques et storytelling</li>
+                                <li>Intégration avec sources de données multiples</li>
                             </ul>
                         </div>
                         
@@ -869,10 +869,10 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="cert-card">
                         <div class="cert-icon">
-                            <i class="fas fa-code"></i>
+                            <i class="fas fa-certificate"></i>
                         </div>
-                        <h5>Formation Développeur Web</h5>
-                        <p>Formation indépendante - Paris<br>Juillet 2024 - Mars 2025</p>
+                        <h5>Licence Sciences de Gestion</h5>
+                        <p>Université Paris I - Panthéon Sorbonne<br>2019 - 2022</p>
                     </div>
                 </div>
             </div>
@@ -881,31 +881,41 @@
 
     <section id="contact" class="contact-section">
         <div class="container">
-            <h2 class="section-title text-center text-white">Contactez-moi</h2>
-            <p class="text-center mb-5" style="font-size: 1.2rem;">
-                Je suis disponible pour un stage à partir du 07/04/2026. N'hésitez pas à me contacter !
-            </p>
+            <h2 class="section-title text-center text-white">Me Contacter</h2>
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-md-6">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <h5>Email</h5>
                         <a href="mailto:waeltra@icloud.com">waeltra@icloud.com</a>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <h5>Téléphone</h5>
-                        <a href="tel:+33625117237">06 25 11 72 37</a>
-                    </div>
-                </div>
-                <div class="col-lg-4">
+
+                <div class="col-lg-4 col-md-6">
                     <div class="contact-item">
                         <i class="fab fa-linkedin"></i>
                         <h5>LinkedIn</h5>
-                        <a href="https://linkedin.com/in/wael-trabelsi" target="_blank">@Wael Trabelsi</a>
+                        <a href="https://linkedin.com/in/wael-trabelsi" target="_blank">linkedin.com/in/wael-trabelsi</a>
                     </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <h5>Téléphone</h5>
+                        <a href="tel:+33625117237">+33 6 25 11 72 37</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <p style="font-size: 1.2rem; font-weight: 500;">
+                        💼 Disponible pour un stage à partir du 07/04/2026
+                    </p>
+                    <p style="font-size: 1.1rem; opacity: 0.9;">
+                        Durée : 4 à 6 mois | Localisation : Paris et région parisienne
+                    </p>
                 </div>
             </div>
         </div>
