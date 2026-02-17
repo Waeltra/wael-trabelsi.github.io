@@ -139,18 +139,18 @@
             transform: translateX(-50%);
             width: 100px;
             height: 4px;
-            background: var(--secondary-color);
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
             border-radius: 2px;
         }
 
         .about-section {
-            padding: 100px 0;
+            padding: 80px 0;
             background: white;
         }
 
         .skill-item {
             background: var(--light-bg);
-            padding: 20px;
+            padding: 25px;
             border-radius: 10px;
             margin-bottom: 20px;
             transition: all 0.3s ease;
@@ -160,6 +160,7 @@
         .skill-item:hover {
             transform: translateX(10px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left-color: var(--accent-color);
         }
 
         .skill-item h5 {
@@ -169,7 +170,7 @@
         }
 
         .experience-section {
-            padding: 100px 0;
+            padding: 80px 0;
             background: var(--light-bg);
         }
 
@@ -179,13 +180,15 @@
             border-radius: 15px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             margin-bottom: 30px;
-            border-left: 5px solid var(--secondary-color);
+            position: relative;
+            border-left: 4px solid var(--secondary-color);
             transition: all 0.3s ease;
         }
 
         .timeline-item:hover {
             transform: translateX(10px);
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-left-color: var(--accent-color);
         }
 
         .company-name {
@@ -218,7 +221,7 @@
         }
 
         .projects-section {
-            padding: 100px 0;
+            padding: 80px 0;
             background: white;
         }
 
@@ -274,7 +277,7 @@
         }
 
         .certifications-section {
-            padding: 100px 0;
+            padding: 80px 0;
             background: var(--light-bg);
         }
 
@@ -359,7 +362,7 @@
         }
 
         .contact-section {
-            padding: 100px 0;
+            padding: 80px 0;
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: white;
         }
@@ -455,6 +458,10 @@
 
         .lang-content.active {
             display: block;
+        }
+
+        .lang-content.active.d-inline-block {
+            display: inline-block !important;
         }
     </style>
 </head>
@@ -656,11 +663,41 @@
                         <i class="fas fa-calendar me-2"></i>February 2024 - August 2024
                     </div>
                     <ul>
-                        <li>Use of HTML & CSS Framework for web development</li>
-                        <li>Mastery of analysis tools (Power BI, GA4)</li>
-                        <li>Creation of financial dashboards</li>
-                        <li>Operations monitoring and inventory management</li>
-                        <li>Data trend analysis</li>
+                        <li>Used HTML & CSS frameworks for web development</li>
+                        <li>Mastered analysis tools (Power BI, GA4)</li>
+                        <li>Created financial dashboards</li>
+                        <li>Monitored operations and inventory management</li>
+                        <li>Analyzed data trends</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="company-name">Fnac Darty | Paris, France</div>
+                    <div class="job-title">Sales Advisor - Electronics & Telephony</div>
+                    <div class="date-location">
+                        <i class="fas fa-calendar me-2"></i>October 2022 - January 2024
+                    </div>
+                    <ul>
+                        <li>Personalized customer advisory and product demonstration</li>
+                        <li>Sales of electronic products and telephony</li>
+                        <li>Inventory management and merchandising</li>
+                        <li>Participation in promotional operations</li>
+                        <li>B2C customer relations</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="company-name">Darty | Paris, France</div>
+                    <div class="job-title">Sales Advisor - Home Appliances</div>
+                    <div class="date-location">
+                        <i class="fas fa-calendar me-2"></i>July 2022 - September 2022
+                    </div>
+                    <ul>
+                        <li>Customer welcome and needs analysis</li>
+                        <li>Sales of small and large appliances</li>
+                        <li>Cross-selling and additional services</li>
+                        <li>After-sales service and customer follow-up</li>
+                        <li>Achieved sales objectives</li>
                     </ul>
                 </div>
             </div>
@@ -681,6 +718,36 @@
                         <li>Création de tableaux de bord financiers</li>
                         <li>Suivi des opérations et gestion des stocks</li>
                         <li>Analyse des tendances de données</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="company-name">Fnac Darty | Paris, France</div>
+                    <div class="job-title">Conseiller de Vente - Électronique & Téléphonie</div>
+                    <div class="date-location">
+                        <i class="fas fa-calendar me-2"></i>Octobre 2022 - Janvier 2024
+                    </div>
+                    <ul>
+                        <li>Conseil personnalisé et démonstration produits</li>
+                        <li>Vente de produits électroniques et téléphonie</li>
+                        <li>Gestion des stocks et merchandising</li>
+                        <li>Participation aux opérations promotionnelles</li>
+                        <li>Relation client B2C</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="company-name">Darty | Paris, France</div>
+                    <div class="job-title">Conseiller de Vente - Électroménager</div>
+                    <div class="date-location">
+                        <i class="fas fa-calendar me-2"></i>Juillet 2022 - Septembre 2022
+                    </div>
+                    <ul>
+                        <li>Accueil clientèle et analyse des besoins</li>
+                        <li>Vente de petit et gros électroménager</li>
+                        <li>Vente croisée et services additionnels</li>
+                        <li>Service après-vente et suivi client</li>
+                        <li>Atteinte des objectifs de vente</li>
                     </ul>
                 </div>
             </div>
@@ -713,15 +780,83 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="project-card">
                         <div class="project-image">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="project-content">
+                            <h4>Power BI Dashboard</h4>
+                            <p>Creation of interactive dashboards for data visualization and performance analysis, with advanced DAX calculations.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Power BI</span>
+                                <span class="project-tag">DAX</span>
+                                <span class="project-tag">Data Viz</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="project-content">
+                            <h4>E-commerce Analysis (Shopify)</h4>
+                            <p>Analysis of sales data, tracking of conversion rates, and optimization of customer journey on an e-commerce site.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Shopify</span>
+                                <span class="project-tag">GA4</span>
+                                <span class="project-tag">E-commerce</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="project-content">
+                            <h4>Google Analytics 4 (GA4)</h4>
+                            <p>Implementation and configuration of GA4, custom event tracking, and creation of analysis reports.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">GA4</span>
+                                <span class="project-tag">GTM</span>
+                                <span class="project-tag">Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image">
                             <i class="fas fa-file-excel"></i>
                         </div>
                         <div class="project-content">
                             <h4>Advanced Excel Automation</h4>
-                            <p>Creation of dynamic dashboards, advanced formulas, pivot tables and VBA macros for automation.</p>
+                            <p>Creation of dynamic dashboards, advanced formulas, pivot tables, and VBA macros for automation.</p>
                             <div class="project-tags">
                                 <span class="project-tag">Excel</span>
                                 <span class="project-tag">VBA</span>
                                 <span class="project-tag">Automation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-hashtag"></i>
+                        </div>
+                        <div class="project-content">
+                            <h4>Social Media Management</h4>
+                            <p>Creation of content strategies, performance analysis, and engagement optimization on various platforms.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Social Media</span>
+                                <span class="project-tag">Content</span>
+                                <span class="project-tag">Analytics</span>
                             </div>
                         </div>
                     </div>
@@ -752,6 +887,57 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="project-card">
                         <div class="project-image">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="project-content">
+                            <h4>Tableau de Bord Power BI</h4>
+                            <p>Création de tableaux de bord interactifs pour la visualisation de données et l'analyse de performance, avec calculs DAX avancés.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Power BI</span>
+                                <span class="project-tag">DAX</span>
+                                <span class="project-tag">Data Viz</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="project-content">
+                            <h4>Analyse E-commerce (Shopify)</h4>
+                            <p>Analyse des données de vente, suivi des taux de conversion et optimisation du parcours client sur un site e-commerce.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Shopify</span>
+                                <span class="project-tag">GA4</span>
+                                <span class="project-tag">E-commerce</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="project-content">
+                            <h4>Google Analytics 4 (GA4)</h4>
+                            <p>Mise en place et configuration de GA4, tracking d'événements personnalisés, création de rapports d'analyse.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">GA4</span>
+                                <span class="project-tag">GTM</span>
+                                <span class="project-tag">Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image">
                             <i class="fas fa-file-excel"></i>
                         </div>
                         <div class="project-content">
@@ -761,6 +947,23 @@
                                 <span class="project-tag">Excel</span>
                                 <span class="project-tag">VBA</span>
                                 <span class="project-tag">Automatisation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <i class="fas fa-hashtag"></i>
+                        </div>
+                        <div class="project-content">
+                            <h4>Gestion Réseaux Sociaux</h4>
+                            <p>Création de stratégies de contenu, analyse de performance et optimisation de l'engagement sur diverses plateformes.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Social Media</span>
+                                <span class="project-tag">Contenu</span>
+                                <span class="project-tag">Analytics</span>
                             </div>
                         </div>
                     </div>
@@ -777,7 +980,7 @@
             <div class="lang-content en active">
                 <div class="row mb-5">
                     <div class="col-12 text-center mb-4">
-                        <h3 style="color: var(--primary-color); font-weight: bold;">🏆 Enablers Certifications 2025</h3>
+                        <h3 style="color: var(--primary-color); font-weight: bold;">🏆 Enablers 2025 Certifications</h3>
                         <p style="font-size: 1.1rem; color: #7f8c8d;">Certified training in digital tools and data analytics</p>
                     </div>
 
@@ -794,9 +997,9 @@
                             <div class="cert-details">
                                 <p style="margin-bottom: 10px; font-weight: 600; color: var(--primary-color);">Skills acquired:</p>
                                 <ul>
-                                    <li>GA4 setup and configuration</li>
+                                    <li>GA4 configuration and setup</li>
                                     <li>Event and conversion tracking</li>
-                                    <li>Custom report creation</li>
+                                    <li>Creating custom reports</li>
                                     <li>Web traffic analysis</li>
                                     <li>Integration with Google Tag Manager</li>
                                 </ul>
@@ -1133,9 +1336,17 @@
         window.addEventListener('DOMContentLoaded', function() {
             const preferredLang = localStorage.getItem('preferredLanguage') || 'en';
             if (preferredLang === 'fr') {
-                switchLanguage('fr');
-                document.querySelectorAll('.lang-btn')[1].classList.add('active');
+                // Activer le français
+                document.querySelectorAll('.lang-content.en').forEach(el => {
+                    el.classList.remove('active');
+                });
+                document.querySelectorAll('.lang-content.fr').forEach(el => {
+                    el.classList.add('active');
+                });
+                // Boutons
                 document.querySelectorAll('.lang-btn')[0].classList.remove('active');
+                document.querySelectorAll('.lang-btn')[1].classList.add('active');
+                document.documentElement.lang = 'fr';
             }
         });
 
