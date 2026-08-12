@@ -4,241 +4,133 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wael Trabelsi — Portfolio</title>
+<script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          bg: '#F6F7F4',
+          surface: '#FFFFFF',
+          ink: '#15181A',
+          muted: '#63665F',
+          line: '#DDE0D8',
+          accent: '#2E5952',
+          'accent-soft': '#E4EBE7'
+        },
+        fontFamily: {
+          display: ['"Space Grotesk"', 'sans-serif'],
+          body: ['Inter', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'monospace']
+        }
+      }
+    }
+  }
+</script>
 <style>
-  :root{
-    --bg:#F6F7F4;
-    --surface:#FFFFFF;
-    --ink:#15181A;
-    --muted:#63665F;
-    --line:#DDE0D8;
-    --accent:#2E5952;
-    --accent-soft:#E4EBE7;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:'Inter',sans-serif;
-    line-height:1.65;
-    font-size:16px;
-  }
-  .wrap{max-width:720px;margin:0 auto;padding:0 24px;}
-  h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:500;letter-spacing:-0.01em;color:var(--ink);}
-  .eyebrow{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:12px;
-    text-transform:uppercase;
-    letter-spacing:0.12em;
-    color:var(--muted);
-  }
-  a{color:var(--accent);text-decoration:none;}
-  a:hover{text-decoration:underline;}
-
-  /* ===== NAV ===== */
-  nav{
-    position:sticky;top:0;z-index:10;
-    background:rgba(246,247,244,0.92);
-    backdrop-filter:blur(6px);
-    border-bottom:1px solid var(--line);
-  }
-  nav .wrap{
-    display:flex;align-items:center;justify-content:space-between;
-    height:56px;
-  }
-  nav .brand{font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;color:var(--ink);}
-  nav ul{list-style:none;display:flex;gap:22px;}
-  nav a{font-size:14px;color:var(--muted);}
-  nav a:hover{color:var(--ink);text-decoration:none;}
-  .lang-toggle{display:flex;gap:0;border:1px solid var(--line);border-radius:5px;overflow:hidden;}
-  .lang-toggle button{
-    font-family:'IBM Plex Mono',monospace;font-size:12px;
-    padding:4px 10px;background:none;border:none;cursor:pointer;color:var(--muted);
-  }
-  .lang-toggle button.active{background:var(--ink);color:var(--bg);}
-
-  /* ===== HERO ===== */
-  header.hero{padding:96px 0 64px;border-bottom:1px solid var(--line);}
-  header.hero .eyebrow{margin-bottom:18px;}
-  header.hero h1{font-size:44px;line-height:1.1;margin-bottom:14px;}
-  header.hero p.role{font-size:18px;color:var(--muted);margin-bottom:28px;}
-  header.hero .meta{display:flex;gap:28px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);flex-wrap:wrap;}
-  header.hero .meta span{display:flex;align-items:center;gap:6px;}
-  header.hero .meta span::before{content:"";width:5px;height:5px;background:var(--accent);border-radius:50%;display:inline-block;}
-
-  /* ===== SECTION SHELL ===== */
-  section{padding:56px 0;border-bottom:1px solid var(--line);}
-  section .eyebrow{margin-bottom:8px;}
-  section h2{font-size:22px;margin-bottom:28px;}
-
-  /* ===== ABOUT ===== */
-  .about-text{max-width:620px;color:var(--ink);font-size:16px;}
-  .about-text p{margin-bottom:14px;}
-
-  .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 40px;margin-top:32px;}
-  .skill-group .label{font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:10px;}
-  .skill-group .items{font-size:14.5px;color:var(--ink);line-height:1.9;}
-
-  /* ===== EXPERIENCE ===== */
-  .exp-item{display:grid;grid-template-columns:64px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--line);}
-  .exp-item:first-of-type{border-top:none;}
-  .exp-index{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);padding-top:3px;}
-  .exp-body h3{font-size:16px;margin-bottom:2px;}
-  .exp-org{font-size:14px;color:var(--accent);margin-bottom:4px;font-weight:500;}
-  .exp-period{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:10px;}
-  .exp-body ul{padding-left:18px;font-size:14.5px;color:var(--ink);}
-  .exp-body li{margin-bottom:5px;}
-
-  /* ===== PROJECTS ===== */
-  .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px;}
-  .proj-card{background:var(--surface);padding:22px;}
-  .proj-card h3{font-size:15px;margin-bottom:8px;}
-  .proj-card p{font-size:13.5px;color:var(--muted);margin-bottom:12px;}
-  .proj-tags{display:flex;flex-wrap:wrap;gap:6px;}
-  .proj-tags span{
-    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);
-    background:var(--accent-soft);padding:2px 8px;border-radius:4px;
-  }
-
-  /* ===== CERTIFICATIONS ===== */
-  .cert-item{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-top:1px solid var(--line);gap:16px;}
-  .cert-item:first-of-type{border-top:none;}
-  .cert-item h3{font-size:14.5px;font-weight:500;}
-  .cert-item .cert-org{font-size:12.5px;color:var(--muted);}
-  .cert-item .cert-date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);white-space:nowrap;}
-
-  /* ===== EDUCATION / LANGUAGES ===== */
-  .two-col{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;}
-  .edu-item{margin-bottom:18px;}
-  .edu-item h3{font-size:14.5px;font-weight:500;margin-bottom:2px;}
-  .edu-item .edu-meta{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);}
-
-  .lang-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-top:1px solid var(--line);}
-  .lang-row:first-of-type{border-top:none;}
-  .lang-row .lang-name{font-size:14px;}
-  .lang-row .lang-level{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);display:flex;align-items:center;gap:8px;}
-  .lang-bar{width:64px;height:2px;background:var(--line);position:relative;}
-  .lang-bar i{position:absolute;top:0;left:0;height:2px;background:var(--accent);display:block;}
-
-  /* ===== CONTACT ===== */
-  section.contact{border-bottom:none;padding-bottom:96px;}
-  .contact-grid{display:flex;gap:32px;flex-wrap:wrap;margin-top:8px;}
-  .contact-grid a{font-size:15px;}
-  .contact-grid .item{display:flex;flex-direction:column;gap:4px;}
-  .contact-grid .item .label{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:var(--muted);letter-spacing:0.08em;}
-
-  footer{padding:20px 0 40px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);text-align:center;}
-
-  [data-lang="fr"]{display:none;}
-  body.fr [data-lang="en"]{display:none;}
-  body.fr [data-lang="fr"]{display:block;}
-  body.fr .exp-item [data-lang="fr"]{display:block;}
-  body.fr ul[data-lang="fr"]{display:block;}
-
-  @media(max-width:640px){
-    .skills-grid{grid-template-columns:1fr;}
-    .proj-grid{grid-template-columns:1fr;}
-    .two-col{grid-template-columns:1fr;}
-    header.hero h1{font-size:32px;}
-    nav ul{display:none;}
-  }
+  html { scroll-behavior: smooth; }
+  [data-lang="fr"] { display: none; }
+  body.fr [data-lang="en"] { display: none; }
+  body.fr [data-lang="fr"] { display: block; }
+  body.fr span[data-lang="fr"] { display: inline-flex; }
+  body:not(.fr) span[data-lang="en"] { display: inline-flex; }
 </style>
 </head>
-<body>
+<body class="bg-bg text-ink font-body leading-relaxed">
 
-<nav>
-  <div class="wrap">
-    <div class="brand">WT/</div>
-    <ul>
-      <li><a href="#about" data-lang="en">About</a><a href="#about" data-lang="fr">À propos</a></li>
-      <li><a href="#experience" data-lang="en">Experience</a><a href="#experience" data-lang="fr">Expérience</a></li>
-      <li><a href="#projects" data-lang="en">Projects</a><a href="#projects" data-lang="fr">Projets</a></li>
-      <li><a href="#contact" data-lang="en">Contact</a><a href="#contact" data-lang="fr">Contact</a></li>
+<nav class="sticky top-0 z-10 bg-bg/90 backdrop-blur-sm border-b border-line">
+  <div class="max-w-3xl mx-auto px-6 h-14 flex items-center justify-between">
+    <div class="font-mono text-sm font-medium">WT/</div>
+    <ul class="hidden sm:flex gap-6 text-sm text-muted">
+      <li><a href="#about" class="hover:text-ink" data-lang="en">About</a><a href="#about" class="hover:text-ink" data-lang="fr">À propos</a></li>
+      <li><a href="#experience" class="hover:text-ink" data-lang="en">Experience</a><a href="#experience" class="hover:text-ink" data-lang="fr">Expérience</a></li>
+      <li><a href="#projects" class="hover:text-ink" data-lang="en">Projects</a><a href="#projects" class="hover:text-ink" data-lang="fr">Projets</a></li>
+      <li><a href="#contact" class="hover:text-ink" data-lang="en">Contact</a><a href="#contact" class="hover:text-ink" data-lang="fr">Contact</a></li>
     </ul>
-    <div class="lang-toggle">
-      <button id="btn-en" class="active">EN</button>
-      <button id="btn-fr">FR</button>
+    <div class="flex border border-line rounded overflow-hidden">
+      <button id="btn-en" class="font-mono text-xs px-2.5 py-1 bg-ink text-bg">EN</button>
+      <button id="btn-fr" class="font-mono text-xs px-2.5 py-1 text-muted">FR</button>
     </div>
   </div>
 </nav>
 
-<header class="hero">
-  <div class="wrap">
-    <div class="eyebrow">Digital marketing / data analytics</div>
-    <h1>Wael Trabelsi</h1>
-    <p class="role" data-lang="en">Turning data and digital strategy into decisions.</p>
-    <p class="role" data-lang="fr">Transformer la donnée et la stratégie digitale en décisions.</p>
-    <div class="meta">
-      <span data-lang="en">Available from 04/07/2026</span>
-      <span data-lang="fr">Disponible à partir du 07/04/2026</span>
-      <span>Paris, France</span>
-      <span><a href="mailto:waeltra@icloud.com">waeltra@icloud.com</a></span>
+<header class="border-b border-line pt-24 pb-16">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="font-mono text-xs uppercase tracking-widest text-muted mb-4">Digital marketing / data analytics</div>
+    <h1 class="font-display text-4xl md:text-5xl leading-tight mb-3">Wael Trabelsi</h1>
+    <p class="text-lg text-muted mb-7" data-lang="en">Turning data and digital strategy into decisions.</p>
+    <p class="text-lg text-muted mb-7" data-lang="fr">Transformer la donnée et la stratégie digitale en décisions.</p>
+    <div class="flex flex-wrap gap-7 font-mono text-xs text-muted">
+      <span class="flex items-center gap-1.5" data-lang="en"><span class="w-1.5 h-1.5 bg-accent rounded-full"></span>Available from 04/07/2026</span>
+      <span class="flex items-center gap-1.5" data-lang="fr"><span class="w-1.5 h-1.5 bg-accent rounded-full"></span>Disponible à partir du 07/04/2026</span>
+      <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-accent rounded-full"></span>Paris, France</span>
+      <span class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-accent rounded-full"></span><a href="mailto:waeltra@icloud.com" class="text-accent hover:underline">waeltra@icloud.com</a></span>
     </div>
   </div>
 </header>
 
-<section id="about">
-  <div class="wrap">
-    <div class="eyebrow" data-lang="en">01 — About</div>
-    <div class="eyebrow" data-lang="fr">01 — À propos</div>
-    <h2 data-lang="en">Profile</h2>
-    <h2 data-lang="fr">Profil</h2>
+<section id="about" class="border-b border-line py-14">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="font-mono text-xs uppercase tracking-widest text-muted mb-2" data-lang="en">01 — About</div>
+    <div class="font-mono text-xs uppercase tracking-widest text-muted mb-2" data-lang="fr">01 — À propos</div>
+    <h2 class="font-display text-xl mb-7" data-lang="en">Profile</h2>
+    <h2 class="font-display text-xl mb-7" data-lang="fr">Profil</h2>
 
-    <div class="about-text">
-      <p data-lang="en">Currently pursuing a dual degree between IM (Master's in Digital Marketing & Data Analytics) and EMLV, looking for an internship to apply hybrid skills in digital strategy and data analysis within an innovative company.</p>
-      <p data-lang="en">Practical experience in web development (HTML/CSS, Python) and data analysis (Power BI, GA4), ready to put these technical skills to work on real digital projects.</p>
-      <p data-lang="fr">Actuellement en double diplôme entre l'IM (Master Digital Marketing & Data Analytics) et EMLV, à la recherche d'un stage pour appliquer des compétences hybrides en stratégie digitale et en analyse de données au sein d'une entreprise innovante.</p>
-      <p data-lang="fr">Expérience concrète en développement web (HTML/CSS, Python) et en analyse de données (Power BI, GA4), prêt à mettre ces compétences techniques au service de projets digitaux réels.</p>
+    <div class="max-w-xl">
+      <p class="mb-3.5" data-lang="en">Currently pursuing a dual degree between IM (Master's in Digital Marketing & Data Analytics) and EMLV, looking for an internship to apply hybrid skills in digital strategy and data analysis within an innovative company.</p>
+      <p class="mb-3.5" data-lang="en">Practical experience in web development (HTML/CSS, Python) and data analysis (Power BI, GA4), ready to put these technical skills to work on real digital projects.</p>
+      <p class="mb-3.5" data-lang="fr">Actuellement en double diplôme entre l'IM (Master Digital Marketing & Data Analytics) et EMLV, à la recherche d'un stage pour appliquer des compétences hybrides en stratégie digitale et en analyse de données au sein d'une entreprise innovante.</p>
+      <p class="mb-3.5" data-lang="fr">Expérience concrète en développement web (HTML/CSS, Python) et en analyse de données (Power BI, GA4), prêt à mettre ces compétences techniques au service de projets digitaux réels.</p>
     </div>
 
-    <div class="skills-grid">
-      <div class="skill-group">
-        <div class="label" data-lang="en">Data analytics</div>
-        <div class="label" data-lang="fr">Data analytics</div>
-        <div class="items">Power BI · Google Analytics 4 · Excel avancé · Dashboards</div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-7 mt-8">
+      <div>
+        <div class="font-mono text-xs uppercase tracking-wide text-muted mb-2.5" data-lang="en">Data analytics</div>
+        <div class="font-mono text-xs uppercase tracking-wide text-muted mb-2.5" data-lang="fr">Data analytics</div>
+        <div class="text-sm leading-loose">Power BI · Google Analytics 4 · Excel avancé · Dashboards</div>
       </div>
-      <div class="skill-group">
-        <div class="label" data-lang="en">Web development</div>
-        <div class="label" data-lang="fr">Développement web</div>
-        <div class="items">HTML/CSS · Python · Bootstrap</div>
+      <div>
+        <div class="font-mono text-xs uppercase tracking-wide text-muted mb-2.5" data-lang="en">Web development</div>
+        <div class="font-mono text-xs uppercase tracking-wide text-muted mb-2.5" data-lang="fr">Développement web</div>
+        <div class="text-sm leading-loose">HTML/CSS · Python · Bootstrap</div>
       </div>
-      <div class="skill-group">
-        <div class="label" data-lang="en">Digital marketing</div>
-        <div class="label" data-lang="fr">Marketing digital</div>
-        <div class="items">SEO · Shopify · GTM · Réseaux sociaux</div>
+      <div>
+        <div class="font-mono text-xs uppercase tracking-wide text-muted mb-2.5" data-lang="en">Digital marketing</div>
+        <div class="font-mono text-xs uppercase tracking-wide text-muted mb-2.5" data-lang="fr">Marketing digital</div>
+        <div class="text-sm leading-loose">SEO · Shopify · GTM · Réseaux sociaux</div>
       </div>
-      <div class="skill-group">
-        <div class="label" data-lang="en">Business</div>
-        <div class="label" data-lang="fr">Compétences business</div>
-        <div class="items" data-lang="en">Negotiation · CRM · Market research</div>
-        <div class="items" data-lang="fr">Négociation · CRM · Étude de marché</div>
+      <div>
+        <div class="font-mono text-xs uppercase tracking-wide text-muted mb-2.5" data-lang="en">Business</div>
+        <div class="font-mono text-xs uppercase tracking-wide text-muted mb-2.5" data-lang="fr">Compétences business</div>
+        <div class="text-sm leading-loose" data-lang="en">Negotiation · CRM · Market research</div>
+        <div class="text-sm leading-loose" data-lang="fr">Négociation · CRM · Étude de marché</div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="experience">
-  <div class="wrap">
-    <div class="eyebrow" data-lang="en">02 — Experience</div>
-    <div class="eyebrow" data-lang="fr">02 — Expérience</div>
-    <h2 data-lang="en">Working experience</h2>
-    <h2 data-lang="fr">Expérience professionnelle</h2>
+<section id="experience" class="border-b border-line py-14">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="font-mono text-xs uppercase tracking-widest text-muted mb-2" data-lang="en">02 — Experience</div>
+    <div class="font-mono text-xs uppercase tracking-widest text-muted mb-2" data-lang="fr">02 — Expérience</div>
+    <h2 class="font-display text-xl mb-7" data-lang="en">Working experience</h2>
+    <h2 class="font-display text-xl mb-7" data-lang="fr">Expérience professionnelle</h2>
 
-    <div class="exp-item">
-      <div class="exp-index">01</div>
-      <div class="exp-body">
-        <h3>Serrurerie Jeannin</h3>
-        <div class="exp-org" data-lang="en">Web & digital marketing mission</div>
-        <div class="exp-org" data-lang="fr">Mission web & marketing digital</div>
-        <div class="exp-period">2026</div>
-        <ul data-lang="en">
+    <div class="grid grid-cols-[40px_1fr] sm:grid-cols-[64px_1fr] gap-5 py-5">
+      <div class="font-mono text-xs text-muted pt-0.5">01</div>
+      <div>
+        <h3 class="font-display text-base mb-0.5">Serrurerie Jeannin</h3>
+        <div class="text-sm text-accent font-medium mb-1" data-lang="en">Web & digital marketing mission</div>
+        <div class="text-sm text-accent font-medium mb-1" data-lang="fr">Mission web & marketing digital</div>
+        <div class="font-mono text-xs text-muted mb-2.5">2026</div>
+        <ul class="list-disc pl-4 text-sm space-y-1.5" data-lang="en">
           <li>Designed, developed, and launched a modern, responsive company website, then conducted SEO audits and optimized on-page elements to strengthen organic visibility</li>
           <li>Built and executed a digital acquisition strategy across blog, social media, and paid advertising to drive traffic and qualified leads</li>
           <li>Tracked performance via Google Analytics and Search Console</li>
         </ul>
-        <ul data-lang="fr">
+        <ul class="list-disc pl-4 text-sm space-y-1.5" data-lang="fr">
           <li>Conception, développement et mise en ligne d'un site web moderne et responsive, puis audits SEO et optimisation des éléments on-page pour renforcer la visibilité organique</li>
           <li>Élaboration et exécution d'une stratégie d'acquisition digitale (blog, réseaux sociaux, publicité) pour générer du trafic et des leads qualifiés</li>
           <li>Suivi des performances via Google Analytics et Search Console</li>
@@ -246,19 +138,18 @@
       </div>
     </div>
 
-    <div class="exp-item">
-      <div class="exp-index">02</div>
-      <div class="exp-body">
-        <h3>Selectra</h3>
-        <div class="exp-org" data-lang="en">Inside sales representative</div>
-        <div class="exp-org" data-lang="fr">Inside sales representative</div>
-        <div class="exp-period">2025</div>
-        <ul data-lang="en">
+    <div class="grid grid-cols-[40px_1fr] sm:grid-cols-[64px_1fr] gap-5 py-5 border-t border-line">
+      <div class="font-mono text-xs text-muted pt-0.5">02</div>
+      <div>
+        <h3 class="font-display text-base mb-0.5">Selectra</h3>
+        <div class="text-sm text-accent font-medium mb-1">Inside sales representative</div>
+        <div class="font-mono text-xs text-muted mb-2.5">2025</div>
+        <ul class="list-disc pl-4 text-sm space-y-1.5" data-lang="en">
           <li>Automated reporting processes and CRM data extraction to enhance operational efficiency</li>
           <li>Developed and optimized internal tools using HTML/CSS and Python to improve sales performance tracking</li>
           <li>Contributed to performance monitoring dashboards and data-driven decision support</li>
         </ul>
-        <ul data-lang="fr">
+        <ul class="list-disc pl-4 text-sm space-y-1.5" data-lang="fr">
           <li>Automatisation du reporting et de l'extraction de données CRM pour améliorer l'efficacité opérationnelle</li>
           <li>Développement et optimisation d'outils internes en HTML/CSS et Python pour le suivi des performances commerciales</li>
           <li>Contribution aux tableaux de bord de suivi de performance et à l'aide à la décision</li>
@@ -266,19 +157,19 @@
       </div>
     </div>
 
-    <div class="exp-item">
-      <div class="exp-index">03</div>
-      <div class="exp-body">
-        <h3>Intec</h3>
-        <div class="exp-org" data-lang="en">Data logistics intern</div>
-        <div class="exp-org" data-lang="fr">Stage — logistique des données</div>
-        <div class="exp-period">2024 – 2025</div>
-        <ul data-lang="en">
+    <div class="grid grid-cols-[40px_1fr] sm:grid-cols-[64px_1fr] gap-5 py-5 border-t border-line">
+      <div class="font-mono text-xs text-muted pt-0.5">03</div>
+      <div>
+        <h3 class="font-display text-base mb-0.5">Intec</h3>
+        <div class="text-sm text-accent font-medium mb-1" data-lang="en">Data logistics intern</div>
+        <div class="text-sm text-accent font-medium mb-1" data-lang="fr">Stage — logistique des données</div>
+        <div class="font-mono text-xs text-muted mb-2.5">2024 – 2025</div>
+        <ul class="list-disc pl-4 text-sm space-y-1.5" data-lang="en">
           <li>Used HTML & CSS frameworks and analysis tools (Power BI, GA4)</li>
           <li>Created financial dashboards and monitored operations</li>
           <li>Analyzed data trends to support decision-making</li>
         </ul>
-        <ul data-lang="fr">
+        <ul class="list-disc pl-4 text-sm space-y-1.5" data-lang="fr">
           <li>Utilisation de frameworks HTML & CSS et d'outils d'analyse (Power BI, GA4)</li>
           <li>Création de tableaux de bord financiers et suivi des opérations</li>
           <li>Analyse des tendances de données pour l'aide à la décision</li>
@@ -288,163 +179,181 @@
   </div>
 </section>
 
-<section id="projects">
-  <div class="wrap">
-    <div class="eyebrow" data-lang="en">03 — Projects</div>
-    <div class="eyebrow" data-lang="fr">03 — Projets</div>
-    <h2 data-lang="en">Selected work</h2>
-    <h2 data-lang="fr">Projets sélectionnés</h2>
+<section id="projects" class="border-b border-line py-14">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="font-mono text-xs uppercase tracking-widest text-muted mb-2" data-lang="en">03 — Projects</div>
+    <div class="font-mono text-xs uppercase tracking-widest text-muted mb-2" data-lang="fr">03 — Projets</div>
+    <h2 class="font-display text-xl mb-7" data-lang="en">Selected work</h2>
+    <h2 class="font-display text-xl mb-7" data-lang="fr">Projets sélectionnés</h2>
 
-    <div class="proj-grid">
-      <div class="proj-card">
-        <h3 data-lang="en">Company website & SEO</h3>
-        <h3 data-lang="fr">Site web & SEO</h3>
-        <p data-lang="en">Built and optimized a website for Serrurerie Jeannin, improving its search ranking and traffic.</p>
-        <p data-lang="fr">Création et optimisation du site de la Serrurerie Jeannin, avec une amélioration du référencement et du trafic.</p>
-        <div class="proj-tags"><span>SEO</span><span>Web</span></div>
-      </div>
-      <div class="proj-card">
-        <h3 data-lang="en">Sales automation tools</h3>
-        <h3 data-lang="fr">Outils d'automatisation commerciale</h3>
-        <p data-lang="en">Automated CRM reporting and built internal tools with Python for Selectra's sales team.</p>
-        <p data-lang="fr">Automatisation du reporting CRM et création d'outils internes en Python pour l'équipe commerciale de Selectra.</p>
-        <div class="proj-tags"><span>Python</span><span>CRM</span></div>
-      </div>
-      <div class="proj-card">
-        <h3 data-lang="en">Financial dashboards</h3>
-        <h3 data-lang="fr">Tableaux de bord financiers</h3>
-        <p data-lang="en">Power BI dashboards for Intec to monitor operations and financial data.</p>
-        <p data-lang="fr">Tableaux de bord Power BI pour Intec, suivi des opérations et données financières.</p>
-        <div class="proj-tags"><span>Power BI</span><span>GA4</span></div>
-      </div>
-      <div class="proj-card">
-        <h3 data-lang="en">This portfolio</h3>
-        <h3 data-lang="fr">Ce portfolio</h3>
-        <p data-lang="en">Designed and built with HTML/CSS, hosted on GitHub Pages.</p>
-        <p data-lang="fr">Conçu et développé en HTML/CSS, hébergé sur GitHub Pages.</p>
-        <div class="proj-tags"><span>HTML/CSS</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="certifications">
-  <div class="wrap">
-    <div class="eyebrow" data-lang="en">04 — Certifications</div>
-    <div class="eyebrow" data-lang="fr">04 — Certifications</div>
-    <h2 data-lang="en">Enablers 2025</h2>
-    <h2 data-lang="fr">Enablers 2025</h2>
-
-    <div class="cert-item">
-      <div>
-        <h3>Google Analytics 4 (GA4)</h3>
-        <div class="cert-org">Enablers</div>
-      </div>
-      <div class="cert-date">13.10.2025</div>
-    </div>
-    <div class="cert-item">
-      <div>
-        <h3>Google Tag Manager (GTM)</h3>
-        <div class="cert-org">Enablers</div>
-      </div>
-      <div class="cert-date">13.10.2025</div>
-    </div>
-    <div class="cert-item">
-      <div>
-        <h3>Microsoft Power Platform & Power BI</h3>
-        <div class="cert-org">Enablers</div>
-      </div>
-      <div class="cert-date">13.10.2025</div>
-    </div>
-  </div>
-</section>
-
-<section id="education">
-  <div class="wrap">
-    <div class="eyebrow" data-lang="en">05 — Education & languages</div>
-    <div class="eyebrow" data-lang="fr">05 — Formation & langues</div>
-    <h2 data-lang="en">Background</h2>
-    <h2 data-lang="fr">Parcours</h2>
-
-    <div class="two-col">
-      <div>
-        <div class="edu-item">
-          <h3 data-lang="en">Master II Management IS & Data</h3>
-          <h3 data-lang="fr">Master II Management SI & Data</h3>
-          <div class="edu-meta">EMLV & IM — Courbevoie · 2022–2027</div>
-        </div>
-        <div class="edu-item">
-          <h3 data-lang="en">European exchange — BBU Budapest</h3>
-          <h3 data-lang="fr">Échange européen — BBU Budapest</h3>
-          <div class="edu-meta" data-lang="en">Faculty of Finance and Accounting · Sep 2024 – Jan 2025</div>
-          <div class="edu-meta" data-lang="fr">Faculté de Finance et de Comptabilité · Sept 2024 – Jan 2025</div>
-        </div>
-        <div class="edu-item">
-          <h3 data-lang="en">Baccalaureate — Management & Finance</h3>
-          <h3 data-lang="fr">Baccalauréat — Gestion et Finance</h3>
-          <div class="edu-meta" data-lang="en">Jacques Monod High School · 2019–2022</div>
-          <div class="edu-meta" data-lang="fr">Lycée Jacques Monod · 2019–2022</div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-px bg-line border border-line">
+      <div class="bg-surface p-5">
+        <h3 class="font-display text-sm mb-2" data-lang="en">Company website & SEO</h3>
+        <h3 class="font-display text-sm mb-2" data-lang="fr">Site web & SEO</h3>
+        <p class="text-sm text-muted mb-3" data-lang="en">Built and optimized a website for Serrurerie Jeannin, improving its search ranking and traffic.</p>
+        <p class="text-sm text-muted mb-3" data-lang="fr">Création et optimisation du site de la Serrurerie Jeannin, avec une amélioration du référencement et du trafic.</p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="font-mono text-xs text-accent bg-accent-soft px-2 py-0.5 rounded">SEO</span>
+          <span class="font-mono text-xs text-accent bg-accent-soft px-2 py-0.5 rounded">Web</span>
         </div>
       </div>
-
-      <div>
-        <div class="lang-row">
-          <span class="lang-name" data-lang="en">French</span>
-          <span class="lang-name" data-lang="fr">Français</span>
-          <span class="lang-level" data-lang="en">Native<span class="lang-bar"><i style="width:100%"></i></span></span>
-          <span class="lang-level" data-lang="fr">Natif<span class="lang-bar"><i style="width:100%"></i></span></span>
+      <div class="bg-surface p-5">
+        <h3 class="font-display text-sm mb-2" data-lang="en">Sales automation tools</h3>
+        <h3 class="font-display text-sm mb-2" data-lang="fr">Outils d'automatisation commerciale</h3>
+        <p class="text-sm text-muted mb-3" data-lang="en">Automated CRM reporting and built internal tools with Python for Selectra's sales team.</p>
+        <p class="text-sm text-muted mb-3" data-lang="fr">Automatisation du reporting CRM et création d'outils internes en Python pour l'équipe commerciale de Selectra.</p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="font-mono text-xs text-accent bg-accent-soft px-2 py-0.5 rounded">Python</span>
+          <span class="font-mono text-xs text-accent bg-accent-soft px-2 py-0.5 rounded">CRM</span>
         </div>
-        <div class="lang-row">
-          <span class="lang-name">English</span>
-          <span class="lang-level">C1<span class="lang-bar"><i style="width:80%"></i></span></span>
+      </div>
+      <div class="bg-surface p-5">
+        <h3 class="font-display text-sm mb-2" data-lang="en">Financial dashboards</h3>
+        <h3 class="font-display text-sm mb-2" data-lang="fr">Tableaux de bord financiers</h3>
+        <p class="text-sm text-muted mb-3" data-lang="en">Power BI dashboards for Intec to monitor operations and financial data.</p>
+        <p class="text-sm text-muted mb-3" data-lang="fr">Tableaux de bord Power BI pour Intec, suivi des opérations et données financières.</p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="font-mono text-xs text-accent bg-accent-soft px-2 py-0.5 rounded">Power BI</span>
+          <span class="font-mono text-xs text-accent bg-accent-soft px-2 py-0.5 rounded">GA4</span>
         </div>
-        <div class="lang-row">
-          <span class="lang-name">Spanish</span>
-          <span class="lang-level">B2<span class="lang-bar"><i style="width:60%"></i></span></span>
+      </div>
+      <div class="bg-surface p-5">
+        <h3 class="font-display text-sm mb-2" data-lang="en">This portfolio</h3>
+        <h3 class="font-display text-sm mb-2" data-lang="fr">Ce portfolio</h3>
+        <p class="text-sm text-muted mb-3" data-lang="en">Designed and built with HTML/CSS and Tailwind, hosted on GitHub Pages.</p>
+        <p class="text-sm text-muted mb-3" data-lang="fr">Conçu et développé en HTML/CSS et Tailwind, hébergé sur GitHub Pages.</p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="font-mono text-xs text-accent bg-accent-soft px-2 py-0.5 rounded">Tailwind</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="contact" class="contact">
-  <div class="wrap">
-    <div class="eyebrow" data-lang="en">06 — Contact</div>
-    <div class="eyebrow" data-lang="fr">06 — Contact</div>
-    <h2 data-lang="en">Let's talk</h2>
-    <h2 data-lang="fr">Discutons</h2>
+<section id="certifications" class="border-b border-line py-14">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="font-mono text-xs uppercase tracking-widest text-muted mb-2" data-lang="en">04 — Certifications</div>
+    <div class="font-mono text-xs uppercase tracking-widest text-muted mb-2" data-lang="fr">04 — Certifications</div>
+    <h2 class="font-display text-xl mb-7">Enablers 2025</h2>
 
-    <div class="contact-grid">
-      <div class="item">
-        <span class="label">Email</span>
-        <a href="mailto:waeltra@icloud.com">waeltra@icloud.com</a>
+    <div class="flex justify-between items-baseline gap-4 py-3.5">
+      <div>
+        <h3 class="text-sm font-medium">Google Analytics 4 (GA4)</h3>
+        <div class="text-xs text-muted">Enablers</div>
       </div>
-      <div class="item">
-        <span class="label">LinkedIn</span>
-        <a href="https://linkedin.com/in/wael-trabelsi">linkedin.com/in/wael-trabelsi</a>
+      <div class="font-mono text-xs text-muted whitespace-nowrap">13.10.2025</div>
+    </div>
+    <div class="flex justify-between items-baseline gap-4 py-3.5 border-t border-line">
+      <div>
+        <h3 class="text-sm font-medium">Google Tag Manager (GTM)</h3>
+        <div class="text-xs text-muted">Enablers</div>
       </div>
-      <div class="item">
-        <span class="label">GitHub</span>
-        <a href="https://github.com/wael-trabelsi">github.com/wael-trabelsi</a>
+      <div class="font-mono text-xs text-muted whitespace-nowrap">13.10.2025</div>
+    </div>
+    <div class="flex justify-between items-baseline gap-4 py-3.5 border-t border-line">
+      <div>
+        <h3 class="text-sm font-medium">Microsoft Power Platform & Power BI</h3>
+        <div class="text-xs text-muted">Enablers</div>
+      </div>
+      <div class="font-mono text-xs text-muted whitespace-nowrap">13.10.2025</div>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="border-b border-line py-14">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="font-mono text-xs uppercase tracking-widest text-muted mb-2" data-lang="en">05 — Education & languages</div>
+    <div class="font-mono text-xs uppercase tracking-widest text-muted mb-2" data-lang="fr">05 — Formation & langues</div>
+    <h2 class="font-display text-xl mb-7" data-lang="en">Background</h2>
+    <h2 class="font-display text-xl mb-7" data-lang="fr">Parcours</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-10">
+      <div>
+        <div class="mb-4.5">
+          <h3 class="text-sm font-medium mb-0.5" data-lang="en">Master II Management IS & Data</h3>
+          <h3 class="text-sm font-medium mb-0.5" data-lang="fr">Master II Management SI & Data</h3>
+          <div class="font-mono text-xs text-muted">EMLV & IM — Courbevoie · 2022–2027</div>
+        </div>
+        <div class="mb-4.5">
+          <h3 class="text-sm font-medium mb-0.5" data-lang="en">European exchange — BBU Budapest</h3>
+          <h3 class="text-sm font-medium mb-0.5" data-lang="fr">Échange européen — BBU Budapest</h3>
+          <div class="font-mono text-xs text-muted" data-lang="en">Faculty of Finance and Accounting · Sep 2024 – Jan 2025</div>
+          <div class="font-mono text-xs text-muted" data-lang="fr">Faculté de Finance et de Comptabilité · Sept 2024 – Jan 2025</div>
+        </div>
+        <div class="mb-4.5">
+          <h3 class="text-sm font-medium mb-0.5" data-lang="en">Baccalaureate — Management & Finance</h3>
+          <h3 class="text-sm font-medium mb-0.5" data-lang="fr">Baccalauréat — Gestion et Finance</h3>
+          <div class="font-mono text-xs text-muted" data-lang="en">Jacques Monod High School · 2019–2022</div>
+          <div class="font-mono text-xs text-muted" data-lang="fr">Lycée Jacques Monod · 2019–2022</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="flex items-center justify-between py-2.5">
+          <span class="text-sm" data-lang="en">French</span>
+          <span class="text-sm" data-lang="fr">Français</span>
+          <span class="font-mono text-xs text-muted flex items-center gap-2">
+            <span data-lang="en">Native</span><span data-lang="fr">Natif</span>
+            <span class="w-16 h-0.5 bg-line relative"><i class="absolute top-0 left-0 h-0.5 bg-accent block w-full"></i></span>
+          </span>
+        </div>
+        <div class="flex items-center justify-between py-2.5 border-t border-line">
+          <span class="text-sm">English</span>
+          <span class="font-mono text-xs text-muted flex items-center gap-2">
+            C1
+            <span class="w-16 h-0.5 bg-line relative"><i class="absolute top-0 left-0 h-0.5 bg-accent block w-4/5"></i></span>
+          </span>
+        </div>
+        <div class="flex items-center justify-between py-2.5 border-t border-line">
+          <span class="text-sm">Spanish</span>
+          <span class="font-mono text-xs text-muted flex items-center gap-2">
+            B2
+            <span class="w-16 h-0.5 bg-line relative"><i class="absolute top-0 left-0 h-0.5 bg-accent block w-3/5"></i></span>
+          </span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<footer>© 2026 Wael Trabelsi</footer>
+<section id="contact" class="pb-24 pt-14">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="font-mono text-xs uppercase tracking-widest text-muted mb-2" data-lang="en">06 — Contact</div>
+    <div class="font-mono text-xs uppercase tracking-widest text-muted mb-2" data-lang="fr">06 — Contact</div>
+    <h2 class="font-display text-xl mb-7" data-lang="en">Let's talk</h2>
+    <h2 class="font-display text-xl mb-7" data-lang="fr">Discutons</h2>
+
+    <div class="flex flex-wrap gap-8">
+      <div class="flex flex-col gap-1">
+        <span class="font-mono text-xs uppercase text-muted tracking-wide">Email</span>
+        <a href="mailto:waeltra@icloud.com" class="text-accent hover:underline">waeltra@icloud.com</a>
+      </div>
+      <div class="flex flex-col gap-1">
+        <span class="font-mono text-xs uppercase text-muted tracking-wide">LinkedIn</span>
+        <a href="https://linkedin.com/in/wael-trabelsi" class="text-accent hover:underline">linkedin.com/in/wael-trabelsi</a>
+      </div>
+      <div class="flex flex-col gap-1">
+        <span class="font-mono text-xs uppercase text-muted tracking-wide">GitHub</span>
+        <a href="https://github.com/wael-trabelsi" class="text-accent hover:underline">github.com/wael-trabelsi</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="py-8 text-center font-mono text-xs text-muted">© 2026 Wael Trabelsi</footer>
 
 <script>
   const btnEn = document.getElementById('btn-en');
   const btnFr = document.getElementById('btn-fr');
   btnEn.addEventListener('click', () => {
     document.body.classList.remove('fr');
-    btnEn.classList.add('active');
-    btnFr.classList.remove('active');
+    btnEn.classList.add('bg-ink','text-bg'); btnEn.classList.remove('text-muted');
+    btnFr.classList.remove('bg-ink','text-bg'); btnFr.classList.add('text-muted');
   });
   btnFr.addEventListener('click', () => {
     document.body.classList.add('fr');
-    btnFr.classList.add('active');
-    btnEn.classList.remove('active');
+    btnFr.classList.add('bg-ink','text-bg'); btnFr.classList.remove('text-muted');
+    btnEn.classList.remove('bg-ink','text-bg'); btnEn.classList.add('text-muted');
   });
 </script>
 
