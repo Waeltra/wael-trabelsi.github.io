@@ -1,1338 +1,452 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wael Trabelsi - Professional Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-bg: #ecf0f1;
-            --dark-text: #2c3e50;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: var(--dark-text);
-            line-height: 1.6;
-        }
-
-        .navbar {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 1rem 0;
-        }
-
-        .navbar-brand {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white !important;
-        }
-
-        .nav-link {
-            color: rgba(255,255,255,0.9) !important;
-            margin: 0 0.5rem;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .nav-link:hover {
-            color: white !important;
-            transform: translateY(-2px);
-        }
-
-        /* Bouton de langue */
-        .language-switcher {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .lang-btn {
-            background: rgba(255,255,255,0.2);
-            border: 2px solid rgba(255,255,255,0.5);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .lang-btn:hover {
-            background: rgba(255,255,255,0.3);
-            transform: scale(1.05);
-        }
-
-        .lang-btn.active {
-            background: white;
-            color: var(--primary-color);
-            border-color: white;
-        }
-
-        .hero-section {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            padding: 150px 0 100px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        .hero-content .subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            opacity: 0.9;
-        }
-
-        .hero-content .lead {
-            font-size: 1.2rem;
-            opacity: 0.85;
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-
-        .btn-hero {
-            padding: 12px 35px;
-            font-size: 1.1rem;
-            margin: 10px;
-            border-radius: 50px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
-
-        .btn-hero:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 50px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
-            border-radius: 2px;
-        }
-
-        .about-section {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .skill-item {
-            background: var(--light-bg);
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
-            border-left: 4px solid var(--secondary-color);
-        }
-
-        .skill-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-left-color: var(--accent-color);
-        }
-
-        .skill-item h5 {
-            color: var(--primary-color);
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .experience-section {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .timeline-item {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            margin-bottom: 30px;
-            position: relative;
-            border-left: 4px solid var(--secondary-color);
-            transition: all 0.3s ease;
-        }
-
-        .timeline-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            border-left-color: var(--accent-color);
-        }
-
-        .company-name {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-
-        .job-title {
-            font-size: 1.1rem;
-            color: var(--secondary-color);
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .date-location {
-            color: #7f8c8d;
-            margin-bottom: 15px;
-            font-style: italic;
-        }
-
-        .timeline-item ul {
-            margin-left: 20px;
-        }
-
-        .timeline-item li {
-            margin-bottom: 8px;
-            color: #555;
-        }
-
-        .projects-section {
-            padding: 80px 0;
-            background: var(--light-bg);
-        }
-
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            overflow: hidden;
-            transition: all 0.3s ease;
-            height: 100%;
-            margin-bottom: 30px;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-
-        .project-image {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-            padding: 60px;
-            text-align: center;
-            color: white;
-        }
-
-        .project-image i {
-            font-size: 4rem;
-        }
-
-        .project-content {
-            padding: 25px;
-        }
-
-        .project-content h4 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-weight: bold;
-        }
-
-        .project-tags {
-            margin-top: 15px;
-        }
-
-        .project-tag {
-            display: inline-block;
-            background: var(--light-bg);
-            color: var(--primary-color);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-right: 5px;
-            margin-bottom: 5px;
-        }
-
-        .certifications-section {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .cert-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            height: 100%;
-            margin-bottom: 30px;
-            border-top: 4px solid var(--secondary-color);
-        }
-
-        .cert-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-            border-top-color: var(--accent-color);
-        }
-
-        .cert-icon {
-            font-size: 3rem;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-        }
-
-        .cert-card h5 {
-            color: var(--primary-color);
-            font-weight: bold;
-            margin-bottom: 15px;
-            font-size: 1.2rem;
-        }
-
-        .cert-card p {
-            color: #7f8c8d;
-            line-height: 1.6;
-        }
-
-        .cert-date {
-            display: inline-block;
-            background: var(--secondary-color);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin-bottom: 15px;
-        }
-
-        .cert-details {
-            background: var(--light-bg);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 15px 0;
-        }
-
-        .cert-details ul {
-            margin: 10px 0 0 0;
-            padding-left: 20px;
-        }
-
-        .cert-reference {
-            background: var(--primary-color);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            margin: 15px 0;
-        }
-
-        .cert-link {
-            display: inline-block;
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .cert-link:hover {
-            color: var(--accent-color);
-            transform: translateX(5px);
-        }
-
-        .contact-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-        }
-
-        .contact-item {
-            text-align: center;
-            padding: 30px;
-            margin-bottom: 30px;
-        }
-
-        .contact-item i {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .contact-item h5 {
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .contact-item a {
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            opacity: 0.8;
-        }
-
-        footer {
-            background: var(--primary-color);
-            color: white;
-            padding: 30px 0;
-            text-align: center;
-        }
-
-        .social-links {
-            margin-bottom: 20px;
-        }
-
-        .social-links a {
-            color: white;
-            font-size: 1.5rem;
-            margin: 0 15px;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--secondary-color);
-            transform: translateY(-3px);
-        }
-
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-content .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .timeline-item::before {
-                display: none;
-            }
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        .fade-in {
-            animation: fadeIn 1s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Cacher les éléments de langue non active */
-        .lang-content {
-            display: none;
-        }
-
-        .lang-content.active {
-            display: block;
-        }
-
-        .lang-content.active.d-inline-block {
-            display: inline-block !important;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wael Trabelsi — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F7F4;
+    --surface:#FFFFFF;
+    --ink:#15181A;
+    --muted:#63665F;
+    --line:#DDE0D8;
+    --accent:#2E5952;
+    --accent-soft:#E4EBE7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.65;
+    font-size:16px;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:0 24px;}
+  h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:500;letter-spacing:-0.01em;color:var(--ink);}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    color:var(--muted);
+  }
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* ===== NAV ===== */
+  nav{
+    position:sticky;top:0;z-index:10;
+    background:rgba(246,247,244,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav .wrap{
+    display:flex;align-items:center;justify-content:space-between;
+    height:56px;
+  }
+  nav .brand{font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:500;color:var(--ink);}
+  nav ul{list-style:none;display:flex;gap:22px;}
+  nav a{font-size:14px;color:var(--muted);}
+  nav a:hover{color:var(--ink);text-decoration:none;}
+  .lang-toggle{display:flex;gap:0;border:1px solid var(--line);border-radius:5px;overflow:hidden;}
+  .lang-toggle button{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;
+    padding:4px 10px;background:none;border:none;cursor:pointer;color:var(--muted);
+  }
+  .lang-toggle button.active{background:var(--ink);color:var(--bg);}
+
+  /* ===== HERO ===== */
+  header.hero{padding:96px 0 64px;border-bottom:1px solid var(--line);}
+  header.hero .eyebrow{margin-bottom:18px;}
+  header.hero h1{font-size:44px;line-height:1.1;margin-bottom:14px;}
+  header.hero p.role{font-size:18px;color:var(--muted);margin-bottom:28px;}
+  header.hero .meta{display:flex;gap:28px;font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);flex-wrap:wrap;}
+  header.hero .meta span{display:flex;align-items:center;gap:6px;}
+  header.hero .meta span::before{content:"";width:5px;height:5px;background:var(--accent);border-radius:50%;display:inline-block;}
+
+  /* ===== SECTION SHELL ===== */
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  section .eyebrow{margin-bottom:8px;}
+  section h2{font-size:22px;margin-bottom:28px;}
+
+  /* ===== ABOUT ===== */
+  .about-text{max-width:620px;color:var(--ink);font-size:16px;}
+  .about-text p{margin-bottom:14px;}
+
+  .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 40px;margin-top:32px;}
+  .skill-group .label{font-family:'IBM Plex Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:10px;}
+  .skill-group .items{font-size:14.5px;color:var(--ink);line-height:1.9;}
+
+  /* ===== EXPERIENCE ===== */
+  .exp-item{display:grid;grid-template-columns:64px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--line);}
+  .exp-item:first-of-type{border-top:none;}
+  .exp-index{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted);padding-top:3px;}
+  .exp-body h3{font-size:16px;margin-bottom:2px;}
+  .exp-org{font-size:14px;color:var(--accent);margin-bottom:4px;font-weight:500;}
+  .exp-period{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);margin-bottom:10px;}
+  .exp-body ul{padding-left:18px;font-size:14.5px;color:var(--ink);}
+  .exp-body li{margin-bottom:5px;}
+
+  /* ===== PROJECTS ===== */
+  .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:8px;}
+  .proj-card{background:var(--surface);padding:22px;}
+  .proj-card h3{font-size:15px;margin-bottom:8px;}
+  .proj-card p{font-size:13.5px;color:var(--muted);margin-bottom:12px;}
+  .proj-tags{display:flex;flex-wrap:wrap;gap:6px;}
+  .proj-tags span{
+    font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--accent);
+    background:var(--accent-soft);padding:2px 8px;border-radius:4px;
+  }
+
+  /* ===== CERTIFICATIONS ===== */
+  .cert-item{display:flex;justify-content:space-between;align-items:baseline;padding:14px 0;border-top:1px solid var(--line);gap:16px;}
+  .cert-item:first-of-type{border-top:none;}
+  .cert-item h3{font-size:14.5px;font-weight:500;}
+  .cert-item .cert-org{font-size:12.5px;color:var(--muted);}
+  .cert-item .cert-date{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);white-space:nowrap;}
+
+  /* ===== EDUCATION / LANGUAGES ===== */
+  .two-col{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;}
+  .edu-item{margin-bottom:18px;}
+  .edu-item h3{font-size:14.5px;font-weight:500;margin-bottom:2px;}
+  .edu-item .edu-meta{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted);}
+
+  .lang-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-top:1px solid var(--line);}
+  .lang-row:first-of-type{border-top:none;}
+  .lang-row .lang-name{font-size:14px;}
+  .lang-row .lang-level{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);display:flex;align-items:center;gap:8px;}
+  .lang-bar{width:64px;height:2px;background:var(--line);position:relative;}
+  .lang-bar i{position:absolute;top:0;left:0;height:2px;background:var(--accent);display:block;}
+
+  /* ===== CONTACT ===== */
+  section.contact{border-bottom:none;padding-bottom:96px;}
+  .contact-grid{display:flex;gap:32px;flex-wrap:wrap;margin-top:8px;}
+  .contact-grid a{font-size:15px;}
+  .contact-grid .item{display:flex;flex-direction:column;gap:4px;}
+  .contact-grid .item .label{font-family:'IBM Plex Mono',monospace;font-size:11px;text-transform:uppercase;color:var(--muted);letter-spacing:0.08em;}
+
+  footer{padding:20px 0 40px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--muted);text-align:center;}
+
+  [data-lang="fr"]{display:none;}
+  body.fr [data-lang="en"]{display:none;}
+  body.fr [data-lang="fr"]{display:block;}
+  body.fr .exp-item [data-lang="fr"]{display:block;}
+  body.fr ul[data-lang="fr"]{display:block;}
+
+  @media(max-width:640px){
+    .skills-grid{grid-template-columns:1fr;}
+    .proj-grid{grid-template-columns:1fr;}
+    .two-col{grid-template-columns:1fr;}
+    header.hero h1{font-size:32px;}
+    nav ul{display:none;}
+  }
+</style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#home">WT</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#home">
-                            <span class="lang-content en active">Home</span>
-                            <span class="lang-content fr">Accueil</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">
-                            <span class="lang-content en active">About</span>
-                            <span class="lang-content fr">À propos</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#experience">
-                            <span class="lang-content en active">Experience</span>
-                            <span class="lang-content fr">Expérience</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">
-                            <span class="lang-content en active">Projects</span>
-                            <span class="lang-content fr">Projets</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#certifications">
-                            <span class="lang-content en active">Certifications</span>
-                            <span class="lang-content fr">Certifications</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">
-                            <span class="lang-content en active">Contact</span>
-                            <span class="lang-content fr">Contact</span>
-                        </a>
-                    </li>
-                </ul>
-                <div class="language-switcher ms-3">
-                    <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
-                    <button class="lang-btn" onclick="switchLanguage('fr')">FR</button>
-                </div>
-            </div>
+
+<nav>
+  <div class="wrap">
+    <div class="brand">WT/</div>
+    <ul>
+      <li><a href="#about" data-lang="en">About</a><a href="#about" data-lang="fr">À propos</a></li>
+      <li><a href="#experience" data-lang="en">Experience</a><a href="#experience" data-lang="fr">Expérience</a></li>
+      <li><a href="#projects" data-lang="en">Projects</a><a href="#projects" data-lang="fr">Projets</a></li>
+      <li><a href="#contact" data-lang="en">Contact</a><a href="#contact" data-lang="fr">Contact</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button id="btn-en" class="active">EN</button>
+      <button id="btn-fr">FR</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Digital marketing / data analytics</div>
+    <h1>Wael Trabelsi</h1>
+    <p class="role" data-lang="en">Turning data and digital strategy into decisions.</p>
+    <p class="role" data-lang="fr">Transformer la donnée et la stratégie digitale en décisions.</p>
+    <div class="meta">
+      <span data-lang="en">Available from 04/07/2026</span>
+      <span data-lang="fr">Disponible à partir du 07/04/2026</span>
+      <span>Paris, France</span>
+      <span><a href="mailto:waeltra@icloud.com">waeltra@icloud.com</a></span>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow" data-lang="en">01 — About</div>
+    <div class="eyebrow" data-lang="fr">01 — À propos</div>
+    <h2 data-lang="en">Profile</h2>
+    <h2 data-lang="fr">Profil</h2>
+
+    <div class="about-text">
+      <p data-lang="en">Currently pursuing a dual degree between IM (Master's in Digital Marketing & Data Analytics) and EMLV, looking for an internship to apply hybrid skills in digital strategy and data analysis within an innovative company.</p>
+      <p data-lang="en">Practical experience in web development (HTML/CSS, Python) and data analysis (Power BI, GA4), ready to put these technical skills to work on real digital projects.</p>
+      <p data-lang="fr">Actuellement en double diplôme entre l'IM (Master Digital Marketing & Data Analytics) et EMLV, à la recherche d'un stage pour appliquer des compétences hybrides en stratégie digitale et en analyse de données au sein d'une entreprise innovante.</p>
+      <p data-lang="fr">Expérience concrète en développement web (HTML/CSS, Python) et en analyse de données (Power BI, GA4), prêt à mettre ces compétences techniques au service de projets digitaux réels.</p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-group">
+        <div class="label" data-lang="en">Data analytics</div>
+        <div class="label" data-lang="fr">Data analytics</div>
+        <div class="items">Power BI · Google Analytics 4 · Excel avancé · Dashboards</div>
+      </div>
+      <div class="skill-group">
+        <div class="label" data-lang="en">Web development</div>
+        <div class="label" data-lang="fr">Développement web</div>
+        <div class="items">HTML/CSS · Python · Bootstrap</div>
+      </div>
+      <div class="skill-group">
+        <div class="label" data-lang="en">Digital marketing</div>
+        <div class="label" data-lang="fr">Marketing digital</div>
+        <div class="items">SEO · Shopify · GTM · Réseaux sociaux</div>
+      </div>
+      <div class="skill-group">
+        <div class="label" data-lang="en">Business</div>
+        <div class="label" data-lang="fr">Compétences business</div>
+        <div class="items" data-lang="en">Negotiation · CRM · Market research</div>
+        <div class="items" data-lang="fr">Négociation · CRM · Étude de marché</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow" data-lang="en">02 — Experience</div>
+    <div class="eyebrow" data-lang="fr">02 — Expérience</div>
+    <h2 data-lang="en">Working experience</h2>
+    <h2 data-lang="fr">Expérience professionnelle</h2>
+
+    <div class="exp-item">
+      <div class="exp-index">01</div>
+      <div class="exp-body">
+        <h3>Serrurerie Jeannin</h3>
+        <div class="exp-org" data-lang="en">Web & digital marketing mission</div>
+        <div class="exp-org" data-lang="fr">Mission web & marketing digital</div>
+        <div class="exp-period">2026</div>
+        <ul data-lang="en">
+          <li>Designed, developed, and launched a modern, responsive company website, then conducted SEO audits and optimized on-page elements to strengthen organic visibility</li>
+          <li>Built and executed a digital acquisition strategy across blog, social media, and paid advertising to drive traffic and qualified leads</li>
+          <li>Tracked performance via Google Analytics and Search Console</li>
+        </ul>
+        <ul data-lang="fr">
+          <li>Conception, développement et mise en ligne d'un site web moderne et responsive, puis audits SEO et optimisation des éléments on-page pour renforcer la visibilité organique</li>
+          <li>Élaboration et exécution d'une stratégie d'acquisition digitale (blog, réseaux sociaux, publicité) pour générer du trafic et des leads qualifiés</li>
+          <li>Suivi des performances via Google Analytics et Search Console</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-index">02</div>
+      <div class="exp-body">
+        <h3>Selectra</h3>
+        <div class="exp-org" data-lang="en">Inside sales representative</div>
+        <div class="exp-org" data-lang="fr">Inside sales representative</div>
+        <div class="exp-period">2025</div>
+        <ul data-lang="en">
+          <li>Automated reporting processes and CRM data extraction to enhance operational efficiency</li>
+          <li>Developed and optimized internal tools using HTML/CSS and Python to improve sales performance tracking</li>
+          <li>Contributed to performance monitoring dashboards and data-driven decision support</li>
+        </ul>
+        <ul data-lang="fr">
+          <li>Automatisation du reporting et de l'extraction de données CRM pour améliorer l'efficacité opérationnelle</li>
+          <li>Développement et optimisation d'outils internes en HTML/CSS et Python pour le suivi des performances commerciales</li>
+          <li>Contribution aux tableaux de bord de suivi de performance et à l'aide à la décision</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-index">03</div>
+      <div class="exp-body">
+        <h3>Intec</h3>
+        <div class="exp-org" data-lang="en">Data logistics intern</div>
+        <div class="exp-org" data-lang="fr">Stage — logistique des données</div>
+        <div class="exp-period">2024 – 2025</div>
+        <ul data-lang="en">
+          <li>Used HTML & CSS frameworks and analysis tools (Power BI, GA4)</li>
+          <li>Created financial dashboards and monitored operations</li>
+          <li>Analyzed data trends to support decision-making</li>
+        </ul>
+        <ul data-lang="fr">
+          <li>Utilisation de frameworks HTML & CSS et d'outils d'analyse (Power BI, GA4)</li>
+          <li>Création de tableaux de bord financiers et suivi des opérations</li>
+          <li>Analyse des tendances de données pour l'aide à la décision</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow" data-lang="en">03 — Projects</div>
+    <div class="eyebrow" data-lang="fr">03 — Projets</div>
+    <h2 data-lang="en">Selected work</h2>
+    <h2 data-lang="fr">Projets sélectionnés</h2>
+
+    <div class="proj-grid">
+      <div class="proj-card">
+        <h3 data-lang="en">Company website & SEO</h3>
+        <h3 data-lang="fr">Site web & SEO</h3>
+        <p data-lang="en">Built and optimized a website for Serrurerie Jeannin, improving its search ranking and traffic.</p>
+        <p data-lang="fr">Création et optimisation du site de la Serrurerie Jeannin, avec une amélioration du référencement et du trafic.</p>
+        <div class="proj-tags"><span>SEO</span><span>Web</span></div>
+      </div>
+      <div class="proj-card">
+        <h3 data-lang="en">Sales automation tools</h3>
+        <h3 data-lang="fr">Outils d'automatisation commerciale</h3>
+        <p data-lang="en">Automated CRM reporting and built internal tools with Python for Selectra's sales team.</p>
+        <p data-lang="fr">Automatisation du reporting CRM et création d'outils internes en Python pour l'équipe commerciale de Selectra.</p>
+        <div class="proj-tags"><span>Python</span><span>CRM</span></div>
+      </div>
+      <div class="proj-card">
+        <h3 data-lang="en">Financial dashboards</h3>
+        <h3 data-lang="fr">Tableaux de bord financiers</h3>
+        <p data-lang="en">Power BI dashboards for Intec to monitor operations and financial data.</p>
+        <p data-lang="fr">Tableaux de bord Power BI pour Intec, suivi des opérations et données financières.</p>
+        <div class="proj-tags"><span>Power BI</span><span>GA4</span></div>
+      </div>
+      <div class="proj-card">
+        <h3 data-lang="en">This portfolio</h3>
+        <h3 data-lang="fr">Ce portfolio</h3>
+        <p data-lang="en">Designed and built with HTML/CSS, hosted on GitHub Pages.</p>
+        <p data-lang="fr">Conçu et développé en HTML/CSS, hébergé sur GitHub Pages.</p>
+        <div class="proj-tags"><span>HTML/CSS</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certifications">
+  <div class="wrap">
+    <div class="eyebrow" data-lang="en">04 — Certifications</div>
+    <div class="eyebrow" data-lang="fr">04 — Certifications</div>
+    <h2 data-lang="en">Enablers 2025</h2>
+    <h2 data-lang="fr">Enablers 2025</h2>
+
+    <div class="cert-item">
+      <div>
+        <h3>Google Analytics 4 (GA4)</h3>
+        <div class="cert-org">Enablers</div>
+      </div>
+      <div class="cert-date">13.10.2025</div>
+    </div>
+    <div class="cert-item">
+      <div>
+        <h3>Google Tag Manager (GTM)</h3>
+        <div class="cert-org">Enablers</div>
+      </div>
+      <div class="cert-date">13.10.2025</div>
+    </div>
+    <div class="cert-item">
+      <div>
+        <h3>Microsoft Power Platform & Power BI</h3>
+        <div class="cert-org">Enablers</div>
+      </div>
+      <div class="cert-date">13.10.2025</div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <div class="eyebrow" data-lang="en">05 — Education & languages</div>
+    <div class="eyebrow" data-lang="fr">05 — Formation & langues</div>
+    <h2 data-lang="en">Background</h2>
+    <h2 data-lang="fr">Parcours</h2>
+
+    <div class="two-col">
+      <div>
+        <div class="edu-item">
+          <h3 data-lang="en">Master II Management IS & Data</h3>
+          <h3 data-lang="fr">Master II Management SI & Data</h3>
+          <div class="edu-meta">EMLV & IM — Courbevoie · 2022–2027</div>
         </div>
-    </nav>
-
-    <section id="home" class="hero-section">
-        <div class="container hero-content text-center">
-            <h1>Wael Trabelsi</h1>
-            <p class="subtitle">Digital Marketing & Data Analytics Specialist</p>
-            
-            <!-- Version Anglaise -->
-            <p class="lead lang-content en active">
-                Dual degree between IM and EMLV | Passionate about digital strategy and data analytics
-            </p>
-            <div class="mt-4 lang-content en active">
-                <a href="#contact" class="btn btn-light btn-hero">Contact Me</a>
-                <a href="#projects" class="btn btn-outline-light btn-hero">View My Projects</a>
-            </div>
-
-            <!-- Version Française -->
-            <p class="lead lang-content fr">
-                Double diplôme entre l'IM et EMLV | Passionné par la stratégie digitale et l'analyse de données
-            </p>
-            <div class="mt-4 lang-content fr">
-                <a href="#contact" class="btn btn-light btn-hero">Me Contacter</a>
-                <a href="#projects" class="btn btn-outline-light btn-hero">Voir mes Projets</a>
-            </div>
+        <div class="edu-item">
+          <h3 data-lang="en">European exchange — BBU Budapest</h3>
+          <h3 data-lang="fr">Échange européen — BBU Budapest</h3>
+          <div class="edu-meta" data-lang="en">Faculty of Finance and Accounting · Sep 2024 – Jan 2025</div>
+          <div class="edu-meta" data-lang="fr">Faculté de Finance et de Comptabilité · Sept 2024 – Jan 2025</div>
         </div>
-    </section>
-
-    <section id="about" class="about-section">
-        <div class="container">
-            <!-- Version Anglaise -->
-            <h2 class="section-title text-center lang-content en active">About Me</h2>
-            
-            <div class="row lang-content en active">
-                <div class="col-lg-6">
-                    <h3 class="mb-4">Profile</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8;">
-                        Currently pursuing a dual degree between IM (Master's in Digital Marketing & Data Analytics) and EMLV, 
-                        I am seeking an internship to apply my hybrid skills in digital strategy and data analysis 
-                        within an innovative company.
-                    </p>
-                    <p style="font-size: 1.1rem; line-height: 1.8;">
-                        Having gained practical experience in web development (HTML/CSS, Python frameworks) and 
-                        data analysis (Power BI, GA4), I want to put my technical skills to work 
-                        on your digital projects.
-                    </p>
-                    <div class="mt-4">
-                        <p><i class="fas fa-calendar-alt me-2" style="color: var(--secondary-color);"></i><strong>Availability:</strong> From 04/07/2026</p>
-                        <p><i class="fas fa-map-marker-alt me-2" style="color: var(--secondary-color);"></i><strong>Location:</strong> Paris, France</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <h3 class="mb-4">Key Skills</h3>
-                    
-                    <div class="skill-item">
-                        <h5><i class="fas fa-chart-line me-2"></i>Data Analytics</h5>
-                        <p class="mb-0">Power BI, Google Analytics 4, Advanced Excel, Data Analysis, Dashboards</p>
-                    </div>
-
-                    <div class="skill-item">
-                        <h5><i class="fas fa-code me-2"></i>Web Development</h5>
-                        <p class="mb-0">HTML/CSS, Python (basics), Bootstrap, Web Frameworks</p>
-                    </div>
-
-                    <div class="skill-item">
-                        <h5><i class="fas fa-bullhorn me-2"></i>Digital Marketing</h5>
-                        <p class="mb-0">Social Media, E-commerce (Shopify), Google Analytics 4, Google Tag Manager, Conversion Rate, Engagement</p>
-                    </div>
-
-                    <div class="skill-item">
-                        <h5><i class="fas fa-handshake me-2"></i>Business Skills</h5>
-                        <p class="mb-0">Negotiation, B2B/B2C Customer Relations, CRM, Market Research</p>
-                    </div>
-
-                    <div class="skill-item">
-                        <h5><i class="fas fa-robot me-2"></i>AI & Creative Tools</h5>
-                        <p class="mb-0">ChatGPT, Canva, Sider, DeepSeek</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Version Française -->
-            <h2 class="section-title text-center lang-content fr">À propos de moi</h2>
-            
-            <div class="row lang-content fr">
-                <div class="col-lg-6">
-                    <h3 class="mb-4">Profil</h3>
-                    <p style="font-size: 1.1rem; line-height: 1.8;">
-                        Actuellement en double diplôme entre l'IM (Master Digital Marketing & Data Analytics) et EMLV, 
-                        je recherche un stage pour appliquer mes compétences hybrides en stratégie digitale et en analyse 
-                        de données au sein d'une entreprise innovante.
-                    </p>
-                    <p style="font-size: 1.1rem; line-height: 1.8;">
-                        Ayant acquis une expérience concrète en développement web (HTML/CSS, frameworks Python) et en 
-                        analyse de données (Power BI, GA4), je souhaite mettre mes compétences techniques au service 
-                        de vos projets digitaux.
-                    </p>
-                    <div class="mt-4">
-                        <p><i class="fas fa-calendar-alt me-2" style="color: var(--secondary-color);"></i><strong>Disponibilité:</strong> À partir du 07/04/2026</p>
-                        <p><i class="fas fa-map-marker-alt me-2" style="color: var(--secondary-color);"></i><strong>Localisation:</strong> Paris, France</p>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <h3 class="mb-4">Compétences Clés</h3>
-                    
-                    <div class="skill-item">
-                        <h5><i class="fas fa-chart-line me-2"></i>Data Analytics</h5>
-                        <p class="mb-0">Power BI, Google Analytics 4, Excel Avancé, Analyse de données, Tableaux de bord</p>
-                    </div>
-
-                    <div class="skill-item">
-                        <h5><i class="fas fa-code me-2"></i>Développement Web</h5>
-                        <p class="mb-0">HTML/CSS, Python (base), Bootstrap, Frameworks Web</p>
-                    </div>
-
-                    <div class="skill-item">
-                        <h5><i class="fas fa-bullhorn me-2"></i>Marketing Digital</h5>
-                        <p class="mb-0">Réseaux sociaux, E-commerce (Shopify), Google Analytics 4, Google Tag Manager, Taux de conversion, Engagement</p>
-                    </div>
-
-                    <div class="skill-item">
-                        <h5><i class="fas fa-handshake me-2"></i>Compétences Commerciales</h5>
-                        <p class="mb-0">Négociation, Relation client B2B/B2C, CRM, Étude de marché</p>
-                    </div>
-
-                    <div class="skill-item">
-                        <h5><i class="fas fa-robot me-2"></i>Outils IA & Créatifs</h5>
-                        <p class="mb-0">ChatGPT, Canva, Sider, DeepSeek</p>
-                    </div>
-                </div>
-            </div>
+        <div class="edu-item">
+          <h3 data-lang="en">Baccalaureate — Management & Finance</h3>
+          <h3 data-lang="fr">Baccalauréat — Gestion et Finance</h3>
+          <div class="edu-meta" data-lang="en">Jacques Monod High School · 2019–2022</div>
+          <div class="edu-meta" data-lang="fr">Lycée Jacques Monod · 2019–2022</div>
         </div>
-    </section>
+      </div>
 
-    <section id="experience" class="experience-section">
-        <div class="container">
-            <!-- Version Anglaise -->
-            <h2 class="section-title text-center lang-content en active">Professional Experience</h2>
-            
-            <div class="lang-content en active">
-                <div class="timeline-item">
-                    <div class="company-name">Intec | Châtillon, France</div>
-                    <div class="job-title">Internship - Data Logistics</div>
-                    <div class="date-location">
-                        <i class="fas fa-calendar me-2"></i>February 2024 - August 2024
-                    </div>
-                    <ul>
-                        <li>Use of HTML & CSS Framework for web development</li>
-                        <li>Handling of analysis tools (Power BI, GA4)</li>
-                        <li>Creation of financial dashboards</li>
-                        <li>Operations monitoring and inventory management</li>
-                        <li>Data trend analysis</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Version Française -->
-            <h2 class="section-title text-center lang-content fr">Expérience Professionnelle</h2>
-            
-            <div class="lang-content fr">
-                <div class="timeline-item">
-                    <div class="company-name">Intec | Châtillon, France</div>
-                    <div class="job-title">Stage - Logistique des Données</div>
-                    <div class="date-location">
-                        <i class="fas fa-calendar me-2"></i>Février 2024 - Août 2024
-                    </div>
-                    <ul>
-                        <li>Utilisation de Framework HTML & CSS pour le développement web</li>
-                        <li>Prise en main d'outils d'analyse (Power BI, GA4)</li>
-                        <li>Création de tableaux de bord financiers</li>
-                        <li>Suivi des opérations et gestion des stocks</li>
-                        <li>Analyse des tendances de données</li>
-                    </ul>
-                </div>
-            </div>
+      <div>
+        <div class="lang-row">
+          <span class="lang-name" data-lang="en">French</span>
+          <span class="lang-name" data-lang="fr">Français</span>
+          <span class="lang-level" data-lang="en">Native<span class="lang-bar"><i style="width:100%"></i></span></span>
+          <span class="lang-level" data-lang="fr">Natif<span class="lang-bar"><i style="width:100%"></i></span></span>
         </div>
-    </section>
-
-    <section id="projects" class="projects-section">
-        <div class="container">
-            <!-- Version Anglaise -->
-            <h2 class="section-title text-center lang-content en active">My Projects</h2>
-            
-            <div class="row lang-content en active">
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div class="project-content">
-                            <h4>Personal Website (Portfolio)</h4>
-                            <p>Development of a professional portfolio in HTML/CSS with responsive design and animations, hosted on GitHub Pages.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">HTML/CSS</span>
-                                <span class="project-tag">Bootstrap</span>
-                                <span class="project-tag">Responsive</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fas fa-chart-bar"></i>
-                        </div>
-                        <div class="project-content">
-                            <h4>Power BI Dashboard</h4>
-                            <p>Creation of interactive dashboards for visualizing financial and operational data with advanced KPIs.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">Power BI</span>
-                                <span class="project-tag">DAX</span>
-                                <span class="project-tag">Data Viz</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <div class="project-content">
-                            <h4>E-commerce Analysis (Shopify)</h4>
-                            <p>Analysis of sales data, conversion rate optimization, and tracking of customer behavior on Shopify.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">Shopify</span>
-                                <span class="project-tag">Analytics</span>
-                                <span class="project-tag">Conversion</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fab fa-google"></i>
-                        </div>
-                        <div class="project-content">
-                            <h4>Google Analytics 4 (GA4)</h4>
-                            <p>Implementation and configuration of GA4, event tracking, and custom report creation for website analysis.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">GA4</span>
-                                <span class="project-tag">GTM</span>
-                                <span class="project-tag">Tracking</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fas fa-file-excel"></i>
-                        </div>
-                        <div class="project-content">
-                            <h4>Advanced Excel Automation</h4>
-                            <p>Creation of dynamic dashboards, advanced formulas, pivot tables, and VBA macros for automation.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">Excel</span>
-                                <span class="project-tag">VBA</span>
-                                <span class="project-tag">Automation</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="project-content">
-                            <h4>Social Media Management</h4>
-                            <p>Development and implementation of social media strategies, content creation, and performance analysis.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">Social Media</span>
-                                <span class="project-tag">Content</span>
-                                <span class="project-tag">Engagement</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Version Française -->
-            <h2 class="section-title text-center lang-content fr">Mes Projets</h2>
-            
-            <div class="row lang-content fr">
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                        <div class="project-content">
-                            <h4>Site Web Personnel (Portfolio)</h4>
-                            <p>Développement d'un portfolio professionnel en HTML/CSS avec design responsive et animations, hébergé sur GitHub Pages.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">HTML/CSS</span>
-                                <span class="project-tag">Bootstrap</span>
-                                <span class="project-tag">Responsive</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fas fa-chart-bar"></i>
-                        </div>
-                        <div class="project-content">
-                            <h4>Tableau de Bord Power BI</h4>
-                            <p>Création de dashboards interactifs pour la visualisation de données financières et opérationnelles avec des KPIs avancés.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">Power BI</span>
-                                <span class="project-tag">DAX</span>
-                                <span class="project-tag">Data Viz</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <div class="project-content">
-                            <h4>Analyse E-commerce (Shopify)</h4>
-                            <p>Analyse des données de ventes, optimisation du taux de conversion et suivi du comportement des clients sur Shopify.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">Shopify</span>
-                                <span class="project-tag">Analytics</span>
-                                <span class="project-tag">Conversion</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fab fa-google"></i>
-                        </div>
-                        <div class="project-content">
-                            <h4>Google Analytics 4 (GA4)</h4>
-                            <p>Mise en place et configuration de GA4, suivi des événements et création de rapports personnalisés pour l'analyse de sites web.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">GA4</span>
-                                <span class="project-tag">GTM</span>
-                                <span class="project-tag">Tracking</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fas fa-file-excel"></i>
-                        </div>
-                        <div class="project-content">
-                            <h4>Automatisation Excel Avancé</h4>
-                            <p>Création de tableaux de bord dynamiques, formules avancées, tableaux croisés dynamiques et macros VBA pour automatisation.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">Excel</span>
-                                <span class="project-tag">VBA</span>
-                                <span class="project-tag">Automatisation</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="project-content">
-                            <h4>Gestion Réseaux Sociaux</h4>
-                            <p>Développement et mise en œuvre de stratégies sur les réseaux sociaux, création de contenu et analyse des performances.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">Social Media</span>
-                                <span class="project-tag">Contenu</span>
-                                <span class="project-tag">Engagement</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="lang-row">
+          <span class="lang-name">English</span>
+          <span class="lang-level">C1<span class="lang-bar"><i style="width:80%"></i></span></span>
         </div>
-    </section>
-
-    <section id="certifications" class="certifications-section">
-        <div class="container">
-            <!-- Version Anglaise -->
-            <h2 class="section-title text-center lang-content en active">Professional Certifications</h2>
-            
-            <div class="lang-content en active">
-                <div class="row mb-5">
-                    <div class="col-12 text-center mb-4">
-                        <h3 style="color: var(--primary-color); font-weight: bold;">🏆 Enablers 2025 Certifications</h3>
-                        <p style="font-size: 1.1rem; color: #7f8c8d;">Certified training in digital tools and data analytics</p>
-                    </div>
-
-                    <!-- Google Analytics 4 -->
-                    <div class="col-lg-6">
-                        <div class="cert-card">
-                            <div class="cert-icon">
-                                <i class="fab fa-google"></i>
-                            </div>
-                            <span class="cert-date">October 13, 2025</span>
-                            <h5>Google Analytics 4 (GA4) - Program</h5>
-                            <p><strong>Organization:</strong> Enablers</p>
-                            
-                            <div class="cert-details">
-                                <p style="margin-bottom: 10px; font-weight: 600; color: var(--primary-color);">Skills acquired:</p>
-                                <ul>
-                                    <li>GA4 configuration and setup</li>
-                                    <li>Event and conversion tracking</li>
-                                    <li>Custom report creation</li>
-                                    <li>Web traffic analysis</li>
-                                    <li>Integration with Google Tag Manager</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="cert-reference">
-                                <i class="fas fa-fingerprint me-2"></i>Ref: 4443216869823849
-                            </div>
-                            
-                            <a href="https://www.enablers.school/redirect/api/certification/4443216869823849" target="_blank" class="cert-link">
-                                <i class="fas fa-external-link-alt me-2"></i>Verify authenticity
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Google Tag Manager -->
-                    <div class="col-lg-6">
-                        <div class="cert-card">
-                            <div class="cert-icon">
-                                <i class="fas fa-tags"></i>
-                            </div>
-                            <span class="cert-date">October 13, 2025</span>
-                            <h5>Google Tag Manager (GTM) - Program</h5>
-                            <p><strong>Organization:</strong> Enablers</p>
-                            
-                            <div class="cert-details">
-                                <p style="margin-bottom: 10px; font-weight: 600; color: var(--primary-color);">Skills acquired:</p>
-                                <ul>
-                                    <li>Tag and trigger configuration</li>
-                                    <li>Variable management</li>
-                                    <li>Advanced event tracking</li>
-                                    <li>Integration with marketing tools</li>
-                                    <li>Testing and debugging</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="cert-reference">
-                                <i class="fas fa-fingerprint me-2"></i>Ref: 2551403384021990
-                            </div>
-                            
-                            <a href="https://www.enablers.school/redirect/api/certification/2551403384021990" target="_blank" class="cert-link">
-                                <i class="fas fa-external-link-alt me-2"></i>Verify authenticity
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Power BI -->
-                    <div class="col-lg-6">
-                        <div class="cert-card">
-                            <div class="cert-icon">
-                                <i class="fas fa-chart-bar"></i>
-                            </div>
-                            <span class="cert-date">October 13, 2025</span>
-                            <h5>Microsoft Power Platform & Power BI - Program</h5>
-                            <p><strong>Organization:</strong> Enablers</p>
-                            
-                            <div class="cert-details">
-                                <p style="margin-bottom: 10px; font-weight: 600; color: var(--primary-color);">Skills acquired:</p>
-                                <ul>
-                                    <li>Creating interactive dashboards</li>
-                                    <li>Data modeling with Power Query</li>
-                                    <li>DAX language for advanced calculations</li>
-                                    <li>Dynamic visualizations and storytelling</li>
-                                    <li>Integration with multiple data sources</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="cert-reference">
-                                <i class="fas fa-fingerprint me-2"></i>Ref: 2440501303316055
-                            </div>
-                            
-                            <a href="https://www.enablers.school/redirect/api/certification/2440501303316055" target="_blank" class="cert-link">
-                                <i class="fas fa-external-link-alt me-2"></i>Verify authenticity
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mt-5">
-                    <div class="col-12 text-center">
-                        <h3 class="mb-4">🎓 Academic Background & Training</h3>
-                    </div>
-                    
-                    <div class="col-lg-4 col-md-6">
-                        <div class="cert-card">
-                            <div class="cert-icon">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <h5>Master II Management IS & Data</h5>
-                            <p>EMLV and IM - Courbevoie<br>2022 - 2027</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="cert-card">
-                            <div class="cert-icon">
-                                <i class="fas fa-university"></i>
-                            </div>
-                            <h5>European Exchange - BBU Budapest</h5>
-                            <p>Faculty of Finance and Accounting<br>September 2024 - January 2025</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="cert-card">
-                            <div class="cert-icon">
-                                <i class="fas fa-certificate"></i>
-                            </div>
-                            <h5>Baccalaureate in Management and Finance</h5>
-                            <p>Jacques Monod High School<br>2019 - 2022</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Version Française -->
-            <h2 class="section-title text-center lang-content fr">Certifications Professionnelles</h2>
-            
-            <div class="lang-content fr">
-                <div class="row mb-5">
-                    <div class="col-12 text-center mb-4">
-                        <h3 style="color: var(--primary-color); font-weight: bold;">🏆 Certifications Enablers 2025</h3>
-                        <p style="font-size: 1.1rem; color: #7f8c8d;">Formations certifiantes en outils digitaux et data analytics</p>
-                    </div>
-
-                    <!-- Google Analytics 4 -->
-                    <div class="col-lg-6">
-                        <div class="cert-card">
-                            <div class="cert-icon">
-                                <i class="fab fa-google"></i>
-                            </div>
-                            <span class="cert-date">13 octobre 2025</span>
-                            <h5>Google Analytics 4 (GA4) - Parcours</h5>
-                            <p><strong>Organisme :</strong> Enablers</p>
-                            
-                            <div class="cert-details">
-                                <p style="margin-bottom: 10px; font-weight: 600; color: var(--primary-color);">Compétences acquises :</p>
-                                <ul>
-                                    <li>Configuration et paramétrage de GA4</li>
-                                    <li>Suivi des événements et conversions</li>
-                                    <li>Création de rapports personnalisés</li>
-                                    <li>Analyse du trafic web</li>
-                                    <li>Intégration avec Google Tag Manager</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="cert-reference">
-                                <i class="fas fa-fingerprint me-2"></i>Réf: 4443216869823849
-                            </div>
-                            
-                            <a href="https://www.enablers.school/redirect/api/certification/4443216869823849" target="_blank" class="cert-link">
-                                <i class="fas fa-external-link-alt me-2"></i>Vérifier l'authenticité
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Google Tag Manager -->
-                    <div class="col-lg-6">
-                        <div class="cert-card">
-                            <div class="cert-icon">
-                                <i class="fas fa-tags"></i>
-                            </div>
-                            <span class="cert-date">13 octobre 2025</span>
-                            <h5>Google Tag Manager (GTM) - Parcours</h5>
-                            <p><strong>Organisme :</strong> Enablers</p>
-                            
-                            <div class="cert-details">
-                                <p style="margin-bottom: 10px; font-weight: 600; color: var(--primary-color);">Compétences acquises :</p>
-                                <ul>
-                                    <li>Configuration des balises et déclencheurs</li>
-                                    <li>Gestion des variables</li>
-                                    <li>Suivi des événements avancés</li>
-                                    <li>Intégration avec outils marketing</li>
-                                    <li>Tests et débogage</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="cert-reference">
-                                <i class="fas fa-fingerprint me-2"></i>Réf: 2551403384021990
-                            </div>
-                            
-                            <a href="https://www.enablers.school/redirect/api/certification/2551403384021990" target="_blank" class="cert-link">
-                                <i class="fas fa-external-link-alt me-2"></i>Vérifier l'authenticité
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Power BI -->
-                    <div class="col-lg-6">
-                        <div class="cert-card">
-                            <div class="cert-icon">
-                                <i class="fas fa-chart-bar"></i>
-                            </div>
-                            <span class="cert-date">13 octobre 2025</span>
-                            <h5>Microsoft Power Platform & Power BI - Parcours</h5>
-                            <p><strong>Organisme :</strong> Enablers</p>
-                            
-                            <div class="cert-details">
-                                <p style="margin-bottom: 10px; font-weight: 600; color: var(--primary-color);">Compétences acquises :</p>
-                                <ul>
-                                    <li>Création de tableaux de bord interactifs</li>
-                                    <li>Modélisation de données avec Power Query</li>
-                                    <li>Langage DAX pour calculs avancés</li>
-                                    <li>Visualisations dynamiques et storytelling</li>
-                                    <li>Intégration avec sources de données multiples</li>
-                                </ul>
-                            </div>
-                            
-                            <div class="cert-reference">
-                                <i class="fas fa-fingerprint me-2"></i>Réf: 2440501303316055
-                            </div>
-                            
-                            <a href="https://www.enablers.school/redirect/api/certification/2440501303316055" target="_blank" class="cert-link">
-                                <i class="fas fa-external-link-alt me-2"></i>Vérifier l'authenticité
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row mt-5">
-                    <div class="col-12 text-center">
-                        <h3 class="mb-4">🎓 Parcours Académique & Formations</h3>
-                    </div>
-                    
-                    <div class="col-lg-4 col-md-6">
-                        <div class="cert-card">
-                            <div class="cert-icon">
-                                <i class="fas fa-graduation-cap"></i>
-                            </div>
-                            <h5>Master II Management SI & Data</h5>
-                            <p>EMLV et IM - Courbevoie<br>2022 - 2027</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="cert-card">
-                            <div class="cert-icon">
-                                <i class="fas fa-university"></i>
-                            </div>
-                            <h5>Échange Européen - BBU Budapest</h5>
-                            <p>Faculté de Finance et de Comptabilité<br>Septembre 2024 - Janvier 2025</p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="cert-card">
-                            <div class="cert-icon">
-                                <i class="fas fa-certificate"></i>
-                            </div>
-                            <h5>Baccalauréat Gestion et Finance</h5>
-                            <p>Lycée Jacques Monod<br>2019 - 2022</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="lang-row">
+          <span class="lang-name">Spanish</span>
+          <span class="lang-level">B2<span class="lang-bar"><i style="width:60%"></i></span></span>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <!-- Version Anglaise -->
-            <h2 class="section-title text-center text-white lang-content en active">Contact Me</h2>
-            
-            <!-- Version Française -->
-            <h2 class="section-title text-center text-white lang-content fr">Me Contacter</h2>
-            
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <h5>Email</h5>
-                        <a href="mailto:waeltra@icloud.com">waeltra@icloud.com</a>
-                    </div>
-                </div>
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="eyebrow" data-lang="en">06 — Contact</div>
+    <div class="eyebrow" data-lang="fr">06 — Contact</div>
+    <h2 data-lang="en">Let's talk</h2>
+    <h2 data-lang="fr">Discutons</h2>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <h5>LinkedIn</h5>
-                        <a href="https://linkedin.com/in/wael-trabelsi" target="_blank">linkedin.com/in/wael-trabelsi</a>
-                    </div>
-                </div>
+    <div class="contact-grid">
+      <div class="item">
+        <span class="label">Email</span>
+        <a href="mailto:waeltra@icloud.com">waeltra@icloud.com</a>
+      </div>
+      <div class="item">
+        <span class="label">LinkedIn</span>
+        <a href="https://linkedin.com/in/wael-trabelsi">linkedin.com/in/wael-trabelsi</a>
+      </div>
+      <div class="item">
+        <span class="label">GitHub</span>
+        <a href="https://github.com/wael-trabelsi">github.com/wael-trabelsi</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-                <div class="col-lg-4 col-md-6">
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <h5>GitHub</h5>
-                        <a href="https://github.com/wael-trabelsi" target="_blank">github.com/wael-trabelsi</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<footer>© 2026 Wael Trabelsi</footer>
 
-    <footer>
-        <div class="container">
-            <div class="social-links">
-                <a href="https://linkedin.com/in/wael-trabelsi" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/wael-trabelsi" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:waeltra@icloud.com"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p class="lang-content en active">&copy; 2025 Wael Trabelsi - All rights reserved</p>
-            <p class="lang-content fr">&copy; 2025 Wael Trabelsi - Tous droits réservés</p>
-        </div>
-    </footer>
+<script>
+  const btnEn = document.getElementById('btn-en');
+  const btnFr = document.getElementById('btn-fr');
+  btnEn.addEventListener('click', () => {
+    document.body.classList.remove('fr');
+    btnEn.classList.add('active');
+    btnFr.classList.remove('active');
+  });
+  btnFr.addEventListener('click', () => {
+    document.body.classList.add('fr');
+    btnFr.classList.add('active');
+    btnEn.classList.remove('active');
+  });
+</script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Gestion du changement de langue
-        function switchLanguage(lang) {
-            // Mise à jour de tous les éléments de contenu
-            document.querySelectorAll('.lang-content').forEach(el => {
-                el.classList.remove('active');
-            });
-            
-            document.querySelectorAll('.lang-content.' + lang).forEach(el => {
-                el.classList.add('active');
-            });
-            
-            // Mise à jour des boutons
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            // Mise à jour de la langue du document
-            document.documentElement.lang = lang === 'en' ? 'en' : 'fr';
-            
-            // Sauvegarde de la préférence
-            localStorage.setItem('preferredLanguage', lang);
-        }
-
-        // Restaurer la langue préférée au chargement
-        window.addEventListener('DOMContentLoaded', function() {
-            const preferredLang = localStorage.getItem('preferredLanguage') || 'en';
-            if (preferredLang === 'fr') {
-                // Activer le français
-                document.querySelectorAll('.lang-content.en').forEach(el => {
-                    el.classList.remove('active');
-                });
-                document.querySelectorAll('.lang-content.fr').forEach(el => {
-                    el.classList.add('active');
-                });
-                // Boutons
-                document.querySelectorAll('.lang-btn')[0].classList.remove('active');
-                document.querySelectorAll('.lang-btn')[1].classList.add('active');
-                document.documentElement.lang = 'fr';
-            }
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const offset = 70;
-                    const targetPosition = target.offsetTop - offset;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Navbar background change on scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.background = 'linear-gradient(135deg, #1a252f 0%, #2980b9 100%)';
-            } else {
-                navbar.style.background = 'linear-gradient(135deg, #2c3e50 0%, #3498db 100%)';
-            }
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.project-card, .timeline-item, .cert-card, .skill-item').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
 </body>
 </html>
